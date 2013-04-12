@@ -16,4 +16,4 @@ To install the development version of qwraps, it's easiest to use the `devtools`
 
     # install.packages("devtools")
     library(devtools)
-    install_github("qwraps")
+    install_github("qwraps", username = "dewittpe")
