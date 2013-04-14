@@ -2,10 +2,12 @@
 \alias{count}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-  count and percentage of a factor with a given value
+  Count and percentage of a factor level.
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+  Returns a string with the count and/or percentage of a particular level of a
+  factor for easy reporting in general but specifically for sweaved/knitted
+  documents.
 }
 \usage{
 count(var, val, data, equal.or.in = "equal", show.n = TRUE, show.percent = TRUE, digits = getOption("qwraps.percent.digits", 1), latex = getOption("qwraps.latex", TRUE))
@@ -13,48 +15,46 @@ count(var, val, data, equal.or.in = "equal", show.n = TRUE, show.percent = TRUE,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{var}{
-%%     ~~Describe \code{var} here~~
+    name of a factor in a data frame.
 }
   \item{val}{
-%%     ~~Describe \code{val} here~~
+    value(s)/level(s) of interest to count
 }
   \item{data}{
-%%     ~~Describe \code{data} here~~
+    data.frame with var included
 }
   \item{equal.or.in}{
-%%     ~~Describe \code{equal.or.in} here~~
+    Use either a '==' or '\%in\%' for the logical operator in var == val or var
+    \%in\% val.
 }
   \item{show.n}{
-%%     ~~Describe \code{show.n} here~~
+    Boolean, default to TRUE, to show the raw counts.
 }
   \item{show.percent}{
-%%     ~~Describe \code{show.percent} here~~
+    Boolean, default to TRUE, for reporting the percentage with the count.
 }
   \item{digits}{
-%%     ~~Describe \code{digits} here~~
+    Number of decimal places to report a percentage with.  This includes
+    trailing zeros.
 }
   \item{latex}{
-%%     ~~Describe \code{latex} here~~
+    Not currently implemented.
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  A sting of the form n, (\%).
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+  Peter DeWitt
 }
 \note{
-%%  ~~further notes~~
+  Intended to be used with data in data frames, not in parent.evn
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -63,25 +63,12 @@ count(var, val, data, equal.or.in = "equal", show.n = TRUE, show.percent = TRUE,
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## Load example data set diamonds from the ggplot2 package
+data(diamonds, package = "ggplot2")
 
-## The function is currently defined as
-function (var, val, data, equal.or.in = "equal", show.n = TRUE, 
-    show.percent = TRUE, digits = getOption("qwraps.percent.digits", 
-        1), latex = getOption("qwraps.latex", TRUE)) 
-{
-    if (equal.or.in == "equal") {
-        n <- sum(data[, var] == val)
-        p <- n/sum(!is.na(data[, var]))
-    }
-    else {
-        n <- sum(data[, var] \%in\% val)
-        p <- n/dim(data)[1]
-    }
-    paste(n, " (", frmt(p * 100, digits), "\\\%) ", sep = "")
-  }
+## find a report the number and percentage of "Fair" cut diamonds
+count(var = "cut", val = "Fair", data = diamonds)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
