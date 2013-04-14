@@ -2,10 +2,10 @@
 \alias{frmt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-format numbers with a set number of digits, including trailing zeros.
+format numbers with a set number of digits, including trailing zeros.  
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+  This function is a wrapper for a call to formatC.
 }
 \usage{
 frmt(x, digits = getOption("qwraps.digits", 3), big.mark = ",")
@@ -13,30 +13,27 @@ frmt(x, digits = getOption("qwraps.digits", 3), big.mark = ",")
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-%%     ~~Describe \code{x} here~~
+    vector of numbers to be formated.
 }
   \item{digits}{
-%%     ~~Describe \code{digits} here~~
+    digits to follow the decimal mark, including trailing zeros.
 }
   \item{big.mark}{
-%%     ~~Describe \code{big.mark} here~~
+    Default is a comma to separate, i.e., 1000 would be reported as 1,000.
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+  Used to format numbers by both the end user and by several of the other
+  functions in the qwraps package.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  a string.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+  Peter DeWitt
 }
 \note{
 %%  ~~further notes~~
@@ -48,20 +45,10 @@ frmt(x, digits = getOption("qwraps.digits", 3), big.mark = ",")
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x, digits = getOption("qwraps.digits", 3), big.mark = ",") 
-{
-    idx <- is.na(x)
-    y <- formatC(x, digits = digits, format = "f", big.mark = big.mark)
-    y[idx] <- ""
-    return(y)
-  }
+  x <- c(1.12, 1.231, 4.338, 10.4, 1.1)
+  frmt(x, 2)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~format }
+\keyword{ ~trailing }% __ONLY ONE__ keyword per line

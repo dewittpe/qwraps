@@ -15,12 +15,17 @@ General TODOs
 
 3) code clean
 
-Additional functionality:
+*Additional functionality:*
+
+A short, incomplete list of additional functionality I want to add to this
+package.
  
 1) In the count.R function add the ability to work with non factor variables.
 Specifically for something along the lines of: count("price", "1000", data =
-diamonds, operator = "&lt") which would return the count and percentage of
+diamonds, operator = "less") which would return the count and percentage of
 records with a price less than 1,000.
+
+2) frmt and frmtp to work on list structures.
 
 
 ## Development
