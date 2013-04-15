@@ -67,7 +67,7 @@ function(x,
     { 
       rtn <- rtn + aes(fill = factor(significant))
       rtn <- rtn + scale_fill_hue(name = paste("Significant at the\n", 
-                                               conf.level, "level"), 
+                                               1 - conf.level, "level"), 
                                   breaks = 0:1, 
                                   labels = c("False", "True")) 
     }
