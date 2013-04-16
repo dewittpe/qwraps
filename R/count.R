@@ -16,5 +16,20 @@ function(var, val, data, equal.or.in = "equal",
     n <- sum(data[, var] %in% val) 
     p <- n / dim(data)[1]
   }
-  paste(frmt(n, digits = 0, big.mark = big.mark),  " (", frmt(p*100, digits), "\\%) ", sep = "")
+
+  if (show.n & show.percent) {
+    paste(frmt(n, digits = 0, big.mark = big.mark), " (", frmt(p*100, digits), "\\%) ", sep = "")
+  }
+  else if(show.n & !show.percent) 
+  {
+    paste(frmt(n, digits = 0, big.mark = big.mark))
+  }
+  else if (!show.n & show.percent) {
+    paste(frmt(p*100, digits), "\\% ", sep = "")
+  }
+  else 
+  {
+    stop("Show something dude.")
+  }
+
 }
