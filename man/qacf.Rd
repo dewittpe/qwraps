@@ -1,56 +1,42 @@
 \name{qacf}
 \alias{qacf}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Auto correlation plot in ggplot
-}
-\description{
-  Reproduce the stats::acf plots from the base R graphics package in ggplot2.
-}
+\title{Auto correlation plot in ggplot}
 \usage{
-qacf(x, conf.level = 0.95, lag.max = NULL, type = c("correlation", "covariance", "partial"), show.sig = FALSE)
+  qacf(x, conf.level = 0.95, lag.max = NULL,
+    type = c("correlation", "covariance", "partial"),
+    show.sig = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-    vector, or data.frame, to be plotted.
-}
-  \item{conf.level}{
-    confidence intervals for determining 'significant' autocorrelations.
-}
-  \item{lag.max}{
-    how many lags to present.  default is the same as the stats::acf plot
-}
-  \item{type}{
-    same options as stats::acf, either a correlation (default), covariance, or
-    partial correlation plot
-}
-  \item{show.sig}{
-    Extension to the stats::acf function.  If TRUE the lags are colored to
-    indicate statistically significant correlations different from zero.  This
-    option is only used for the corrleation plot.
-}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+  \item{x}{vector, or data.frame, to be plotted.}
+
+  \item{conf.level}{confidence intervals for determining
+  'significant' autocorrelations.}
+
+  \item{lag.max}{how many lags to present.  default is the
+  same as the stats::acf plot}
+
+  \item{type}{same options as stats::acf, either a
+  correlation (default), covariance, or partial correlation
+  plot}
+
+  \item{show.sig}{Extension to the stats::acf function.  If
+  TRUE the lags are colored to indicate statistically
+  significant correlations different from zero.  This
+  option is only used for the corrleation plot.}
 }
 \value{
   a ggplot object
 }
-\references{
-%% ~put references to the literature/web site here ~
+\description{
+  Reproduce the stats::acf plots from the base R graphics
+  package in ggplot2.
 }
-\author{
-  Peter DeWitt
+\details{
+  %% ~~ If necessary, more details than the description
+  above ~~
 }
 \note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  %% ~~further notes~~
 }
 \examples{
 # Generate a random data set
@@ -86,7 +72,15 @@ qacf(testdf$x1)
 acf(testdf)
 qacf(testdf)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\author{
+  Peter DeWitt
+}
+\references{
+  %% ~put references to the literature/web site here ~
+}
+\seealso{
+  %% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\keyword{~kwd1}
+\keyword{~kwd2}
+
