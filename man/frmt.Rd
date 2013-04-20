@@ -1,54 +1,45 @@
 \name{frmt}
 \alias{frmt}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-format numbers with a set number of digits, including trailing zeros.  
-}
-\description{
-  This function is a wrapper for a call to formatC.
-}
+\title{format numbers with a set number of digits, including trailing zeros.}
 \usage{
-frmt(x, digits = getOption("qwraps.digits", 3), big.mark = ",")
+  frmt(x, digits = getOption("qwraps.digits", 3),
+    big.mark = ",")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-    vector of numbers to be formated.
-}
-  \item{digits}{
-    digits to follow the decimal mark, including trailing zeros.
-}
-  \item{big.mark}{
-    Default is a comma to separate, i.e., 1000 would be reported as 1,000.
-}
-}
-\details{
-  Used to format numbers by both the end user and by several of the other
-  functions in the qwraps package.
+  \item{x}{vector of numbers to be formated.}
+
+  \item{digits}{digits to follow the decimal mark,
+  including trailing zeros.}
+
+  \item{big.mark}{Default is a comma to separate, i.e.,
+  1000 would be reported as 1,000.}
 }
 \value{
   a string.
 }
-\references{
-%% ~put references to the literature/web site here ~
+\description{
+  This function is a wrapper for a call to formatC.
+}
+\details{
+  Used to format numbers by both the end user and by
+  several of the other functions in the qwraps package.
+}
+\note{
+  %% ~~further notes~~
+}
+\examples{
+x <- c(1.12, 1.231, 4.338, 10.4, 1.1)
+ frmt(x, 2)
 }
 \author{
   Peter DeWitt
 }
-\note{
-%%  ~~further notes~~
+\references{
+  %% ~put references to the literature/web site here ~
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
-\examples{
-  x <- c(1.12, 1.231, 4.338, 10.4, 1.1)
-  frmt(x, 2)
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~format }
-\keyword{ ~trailing }% __ONLY ONE__ keyword per line
+\keyword{~format}
+\keyword{~trailing}
+

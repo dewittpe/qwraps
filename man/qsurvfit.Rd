@@ -1,51 +1,31 @@
 \name{qsurvfit}
 \alias{qsurvfit}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-  KM plots
-}
-\description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+\title{KM plots}
 \usage{
-qsurvfit(fit, l.name = NULL, labels = NULL)
+  qsurvfit(fit, l.name = NULL, labels = NULL)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{fit}{
-%%     ~~Describe \code{fit} here~~
-}
-  \item{l.name}{
-%%     ~~Describe \code{l.name} here~~
-}
-  \item{labels}{
-%%     ~~Describe \code{labels} here~~
-}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
+  \item{fit}{%% ~~Describe \code{fit} here~~}
+
+  \item{l.name}{%% ~~Describe \code{l.name} here~~}
+
+  \item{labels}{%% ~~Describe \code{labels} here~~}
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+  %% ~Describe the value returned %% If it is a LIST, use
+  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
+  }{Description of 'comp2'} %% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
+\description{
+  %% ~~ A concise (1-5 lines) description of what the
+  function does. ~~
 }
-\author{
-%%  ~~who you are~~
+\details{
+  %% ~~ If necessary, more details than the description
+  above ~~
 }
 \note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  %% ~~further notes~~
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -53,35 +33,43 @@ qsurvfit(fit, l.name = NULL, labels = NULL)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (fit, l.name = NULL, labels = NULL) 
+function (fit, l.name = NULL, labels = NULL)
 {
-    n <- length(names(fit$strata))
-    plot.data <- data.frame(time = c(fit$time, rep(0, n)), n.risk = c(fit$n.risk, 
-        rep(NA, n)), n.event = c(fit$n.event, rep(NA, n)), n.censor = c(fit$n.censor, 
-        rep(0, n)), surv = c(fit$surv, rep(1, n)), strata = c(summary(fit, 
-        censored = TRUE)$strata, 1:n), upper = c(fit$upper, rep(1, 
-        n)), lower = c(fit$lower, rep(1, n)))
-    plot.data$strata <- factor(plot.data$strata, levels = 1:n, 
-        labels = names(fit$strata))
-    if (is.null(l.name)) {
-        name <- "Strata"
-    }
-    else {
-        name <- l.name
-    }
-    q <- ggplot(plot.data, aes(x = time, y = surv, colour = strata)) + 
-        geom_step() + ylim(c(0, 1)) + geom_point(data = subset(plot.data, 
-        n.censor > 0), shape = 3, alpha = 0.9) + if (is.null(labels)) {
-        scale_colour_hue(name = name, breaks = levels(plot.data$strata))
-    }
-    else {
-        scale_colour_hue(name = name, breaks = levels(plot.data$strata), 
-            labels = labels)
-    }
-    return(q + theme(legend.position = "bottom", legend.direction = "horizontal"))
-  }
+   n <- length(names(fit$strata))
+   plot.data <- data.frame(time = c(fit$time, rep(0, n)), n.risk = c(fit$n.risk,
+       rep(NA, n)), n.event = c(fit$n.event, rep(NA, n)), n.censor = c(fit$n.censor,
+       rep(0, n)), surv = c(fit$surv, rep(1, n)), strata = c(summary(fit,
+       censored = TRUE)$strata, 1:n), upper = c(fit$upper, rep(1,
+       n)), lower = c(fit$lower, rep(1, n)))
+   plot.data$strata <- factor(plot.data$strata, levels = 1:n,
+       labels = names(fit$strata))
+   if (is.null(l.name)) {
+       name <- "Strata"
+   }
+   else {
+       name <- l.name
+   }
+   q <- ggplot(plot.data, aes(x = time, y = surv, colour = strata)) +
+       geom_step() + ylim(c(0, 1)) + geom_point(data = subset(plot.data,
+       n.censor > 0), shape = 3, alpha = 0.9) + if (is.null(labels)) {
+       scale_colour_hue(name = name, breaks = levels(plot.data$strata))
+   }
+   else {
+       scale_colour_hue(name = name, breaks = levels(plot.data$strata),
+           labels = labels)
+   }
+   return(q + theme(legend.position = "bottom", legend.direction = "horizontal"))
+ }
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\author{
+  %% ~~who you are~~
+}
+\references{
+  %% ~put references to the literature/web site here ~
+}
+\seealso{
+  %% ~~objects to See Also as \code{\link{help}}, ~~~
+}
+\keyword{~kwd1}
+\keyword{~kwd2}
+
