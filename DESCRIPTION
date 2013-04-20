@@ -5,7 +5,22 @@ Version: 0.1
 Date: 2013-04-12
 Author: Peter DeWitt
 Maintainer: Peter DeWitt <dewittpe@gmail.com>
-Description: Wrapper functions for creating plots such as ACF, ROC, or survfit using ggplot2 instead of the base R plots.  Other handy functions for quickly formating results from analyses are included.  
+Description: Wrapper functions for creating plots such as ACF, ROC, or survfit
+    using ggplot2 instead of the base R plots.  Other handy functions for
+    quickly formating results from analyses are included.
 License: GPL (>=2.0)
 URL: github.com/dewittpe/qwraps
-
+Collate:
+    'count.R'
+    'frmtp.R'
+    'frmt.R'
+    'params.coxph.R'
+    'params_frmtr.R'
+    'params.glm.R'
+    'params.lm.R'
+    'params.R'
+    'params.survfit.R'
+    'qacf.R'
+    'qroc.R'
+    'qsurvfit.R'
+    'simpleCap.R'
