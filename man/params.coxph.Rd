@@ -6,16 +6,14 @@
     alpha = getOption("qwraps.alpha", 0.05), ...)
 }
 \arguments{
-  \item{fit}{%% ~~Describe \code{fit} here~~}
+  \item{fit}{}
 
-  \item{alpha}{%% ~~Describe \code{alpha} here~~}
+  \item{alpha}{}
 
-  \item{\dots}{%% ~~Describe \code{\dots} here~~}
+  \item{\dots}{}
 }
 \value{
-  %% ~Describe the value returned %% If it is a LIST, use
-  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
-  }{Description of 'comp2'} %% ...
+  ?
 }
 \description{
   %% ~~ A concise (1-5 lines) description of what the
@@ -26,7 +24,7 @@
   above ~~
 }
 \note{
-  %% ~~further notes~~
+  ?
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -43,13 +41,13 @@ function (fit, alpha = getOption("qwraps.alpha", 0.05), ...)
  }
 }
 \author{
-  %% ~~who you are~~
+  Peter DeWitt
 }
 \references{
-  %% ~put references to the literature/web site here ~
+  ?
 }
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  ?
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

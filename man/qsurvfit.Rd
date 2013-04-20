@@ -5,16 +5,14 @@
   qsurvfit(fit, l.name = NULL, labels = NULL)
 }
 \arguments{
-  \item{fit}{%% ~~Describe \code{fit} here~~}
+  \item{fit}{}
 
-  \item{l.name}{%% ~~Describe \code{l.name} here~~}
+  \item{l.name}{}
 
-  \item{labels}{%% ~~Describe \code{labels} here~~}
+  \item{labels}{}
 }
 \value{
-  %% ~Describe the value returned %% If it is a LIST, use
-  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
-  }{Description of 'comp2'} %% ...
+  ?
 }
 \description{
   %% ~~ A concise (1-5 lines) description of what the
@@ -25,7 +23,7 @@
   above ~~
 }
 \note{
-  %% ~~further notes~~
+  ?
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -62,13 +60,13 @@ function (fit, l.name = NULL, labels = NULL)
  }
 }
 \author{
-  %% ~~who you are~~
+  Peter DeWitt
 }
 \references{
-  %% ~put references to the literature/web site here ~
+  ?
 }
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  ?
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

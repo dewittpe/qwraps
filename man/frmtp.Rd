@@ -6,16 +6,14 @@
     equal.sign = FALSE)
 }
 \arguments{
-  \item{x}{%% ~~Describe \code{x} here~~}
+  \item{x}{}
 
-  \item{pdigits}{%% ~~Describe \code{pdigits} here~~}
+  \item{pdigits}{}
 
-  \item{equal.sign}{%% ~~Describe \code{equal.sign} here~~}
+  \item{equal.sign}{}
 }
 \value{
-  %% ~Describe the value returned %% If it is a LIST, use
-  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
-  }{Description of 'comp2'} %% ...
+  ?
 }
 \description{
   %% ~~ A concise (1-5 lines) description of what the
@@ -26,7 +24,7 @@
   above ~~
 }
 \note{
-  %% ~~further notes~~
+  ?
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -48,13 +46,13 @@ function (x, pdigits = getOption("qwraps.pdigits", 4), equal.sign = FALSE)
  }
 }
 \author{
-  %% ~~who you are~~
+  Peter DeWitt
 }
 \references{
-  %% ~put references to the literature/web site here ~
+  ?
 }
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  ?
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

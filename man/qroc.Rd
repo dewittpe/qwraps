@@ -5,18 +5,16 @@
   qroc(fit, newdata = NULL, show.auc = FALSE, n = 200)
 }
 \arguments{
-  \item{fit}{%% ~~Describe \code{fit} here~~}
+  \item{fit}{}
 
-  \item{newdata}{%% ~~Describe \code{newdata} here~~}
+  \item{newdata}{}
 
-  \item{show.auc}{%% ~~Describe \code{show.auc} here~~}
+  \item{show.auc}{}
 
-  \item{n}{%% ~~Describe \code{n} here~~}
+  \item{n}{}
 }
 \value{
-  %% ~Describe the value returned %% If it is a LIST, use
-  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
-  }{Description of 'comp2'} %% ...
+  ?
 }
 \description{
   %% ~~ A concise (1-5 lines) description of what the
@@ -27,7 +25,7 @@
   above ~~
 }
 \note{
-  %% ~~further notes~~
+  ?
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -73,13 +71,13 @@ function (fit, newdata = NULL, show.auc = FALSE, n = 200)
  }
 }
 \author{
-  %% ~~who you are~~
+  Peter DeWitt
 }
 \references{
-  %% ~put references to the literature/web site here ~
+  ?
 }
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  ?
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

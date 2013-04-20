@@ -18,8 +18,7 @@
   ~~
 }
 \examples{
-~~ simple examples of the most important functions ~~
-What license is it under?
+cat('~~ simple examples of the most important functions ~~')
 }
 \author{
   Who wrote it

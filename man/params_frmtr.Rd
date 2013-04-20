@@ -12,34 +12,32 @@
     small.mark = "")
 }
 \arguments{
-  \item{rtn}{%% ~~Describe \code{rtn} here~~}
+  \item{rtn}{}
 
-  \item{param}{%% ~~Describe \code{param} here~~}
+  \item{param}{}
 
-  \item{digits}{%% ~~Describe \code{digits} here~~}
+  \item{digits}{}
 
-  \item{pdigits}{%% ~~Describe \code{pdigits} here~~}
+  \item{pdigits}{}
 
-  \item{show.ci}{%% ~~Describe \code{show.ci} here~~}
+  \item{show.ci}{}
 
-  \item{show.pval}{%% ~~Describe \code{show.pval} here~~}
+  \item{show.pval}{}
 
-  \item{alpha}{%% ~~Describe \code{alpha} here~~}
+  \item{alpha}{}
 
-  \item{fun}{%% ~~Describe \code{fun} here~~}
+  \item{fun}{}
 
-  \item{equal.sign}{%% ~~Describe \code{equal.sign} here~~}
+  \item{equal.sign}{}
 
-  \item{unit}{%% ~~Describe \code{unit} here~~}
+  \item{unit}{}
 
-  \item{big.mark}{%% ~~Describe \code{big.mark} here~~}
+  \item{big.mark}{}
 
-  \item{small.mark}{%% ~~Describe \code{small.mark} here~~}
+  \item{small.mark}{}
 }
 \value{
-  %% ~Describe the value returned %% If it is a LIST, use
-  %% \item{comp1 }{Description of 'comp1'} %% \item{comp2
-  }{Description of 'comp2'} %% ...
+  ?
 }
 \description{
   %% ~~ A concise (1-5 lines) description of what the
@@ -50,7 +48,7 @@
   above ~~
 }
 \note{
-  %% ~~further notes~~
+  ?
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -99,13 +97,13 @@ function (rtn, param = NULL, digits = getOption("qwraps.digits",
  }
 }
 \author{
-  %% ~~who you are~~
+  Peter DeWitt
 }
 \references{
-  %% ~put references to the literature/web site here ~
+  ?
 }
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  ?
 }
 \keyword{~kwd1}
 \keyword{~kwd2}
