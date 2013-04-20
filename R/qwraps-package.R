@@ -23,10 +23,8 @@ NULL
 #'\code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 #'@references ~~ Literature or other references for background information ~~
 #'@keywords package
-#'@examples
-#'
-#'~~ simple examples of the most important functions ~~
-#'What license is it under?
+#'@examples 
+#'cat('~~ simple examples of the most important functions ~~')
 NULL
 
 

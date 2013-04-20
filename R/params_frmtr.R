@@ -4,25 +4,23 @@
 #'
 #'%% ~~ If necessary, more details than the description above ~~
 #'
-#'@param rtn %% ~~Describe \code{rtn} here~~
-#'@param param %% ~~Describe \code{param} here~~
-#'@param digits %% ~~Describe \code{digits} here~~
-#'@param pdigits %% ~~Describe \code{pdigits} here~~
-#'@param show.ci %% ~~Describe \code{show.ci} here~~
-#'@param show.pval %% ~~Describe \code{show.pval} here~~
-#'@param alpha %% ~~Describe \code{alpha} here~~
-#'@param fun %% ~~Describe \code{fun} here~~
-#'@param equal.sign %% ~~Describe \code{equal.sign} here~~
-#'@param unit %% ~~Describe \code{unit} here~~
-#'@param big.mark %% ~~Describe \code{big.mark} here~~
-#'@param small.mark %% ~~Describe \code{small.mark} here~~
-#'@return %% ~Describe the value returned %% If it is a LIST, use %%
-#'\item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#''comp2'} %% ...
-#'@note %% ~~further notes~~
-#'@author %% ~~who you are~~
-#'@seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#'@references %% ~put references to the literature/web site here ~
+#'@param rtn
+#'@param param
+#'@param digits
+#'@param pdigits
+#'@param show.ci
+#'@param show.pval
+#'@param alpha
+#'@param fun
+#'@param equal.sign
+#'@param unit
+#'@param big.mark
+#'@param small.mark
+#'@return ?
+#'@note ?
+#'@author Peter DeWitt
+#'@seealso ?
+#'@references ?
 #'@keywords ~kwd1 ~kwd2
 #'@examples
 #'
