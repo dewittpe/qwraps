@@ -52,7 +52,9 @@
 qsurvplot <-
 function(fit, show.ci = getOption("qwraps.show.ci", TRUE), 
          l.name = NULL, labels = NULL){
+
   n <- length(names(fit$strata))
+
   plot.data <- data.frame(
     time     = c(fit$time, rep(0, n)),
     n.risk   = c(fit$n.risk, rep(NA, n)),
@@ -62,6 +64,7 @@ function(fit, show.ci = getOption("qwraps.show.ci", TRUE),
     strata   = c(summary(fit, censored = TRUE)$strata, 1:n), 
     upper    = c(fit$upper, rep(1, n)),
     lower    = c(fit$lower, rep(1, n))) 
+
   plot.data$strata <- factor(plot.data$strata,
                              levels = 1:n,
                              labels = names(fit$strata))               
@@ -84,7 +87,8 @@ function(fit, show.ci = getOption("qwraps.show.ci", TRUE),
 	}
 
   if (show.ci) {
-    g <- geom_ribbon(aes(ymin = lower, ymax = upper))
+    g <- g + geom_ribbon(aes(ymin = lower, ymax = upper))
   }
+
   return(g + theme(legend.position = "bottom", legend.direction = "horizontal"))
 }
