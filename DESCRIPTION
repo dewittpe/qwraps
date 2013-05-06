@@ -22,7 +22,7 @@ Collate:
     'params.survfit.R'
     'qacf.R'
     'qroc.R'
-    'qsurvfit.R'
+    'qsurvplot.R'
     'simpleCap.R'
     'qwraps-package.R'
     'load_cache.R'
