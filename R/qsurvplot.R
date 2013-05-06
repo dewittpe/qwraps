@@ -87,7 +87,8 @@ function(fit, show.ci = getOption("qwraps.show.ci", TRUE),
 	}
 
   if (show.ci) {
-    g <- g + geom_ribbon(aes(ymin = lower, ymax = upper))
+    g <- g + geom_ribbon(aes(ymin = lower, ymax = upper, fill = strata), 
+                         alpha = 0.5)
   }
 
   return(g + theme(legend.position = "bottom", legend.direction = "horizontal"))
