@@ -1,11 +1,15 @@
-\name{qsurvfit}
-\alias{qsurvfit}
+\name{qsurvplot}
+\alias{qsurvplot}
 \title{KM plots}
 \usage{
-  qsurvfit(fit, l.name = NULL, labels = NULL)
+  qsurvplot(fit,
+    show.ci = getOption("qwraps.show.ci", TRUE),
+    l.name = NULL, labels = NULL)
 }
 \arguments{
   \item{fit}{}
+
+  \item{show.ci}{}
 
   \item{l.name}{}
 
@@ -15,8 +19,7 @@
   ?
 }
 \description{
-  %% ~~ A concise (1-5 lines) description of what the
-  function does. ~~
+  %% Creat Kaplam-Meier plots via ggplot2
 }
 \details{
   %% ~~ If necessary, more details than the description

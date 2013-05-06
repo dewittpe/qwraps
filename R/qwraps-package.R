@@ -23,30 +23,27 @@ NULL
 #'@references ~~ Literature or other references for background information ~~
 #'@keywords ACF, ROC, AUC, counts, wraps, 
 #'@examples 
-
-library(ggplot2)
-library(qwraps)
-
-# count of, and percentage, of differnt levels of a factor
-count(var = "cut", val = "Fair", data = diamonds)
-count(var = "cut", val = c("Fair", "Good"), data = diamonds, equal.or.in = "in")
-
-# parameter estimates from a regression model
-fit <- lm(price ~ cut + table, data = diamonds)
-params(fit)
-
-# Example of the qacf function. First generate an AR(1) sequence
-set.seed(42)
-eg.dat <- vector("numeric", 500)
-eg.dat[1] <- 0
-for(i in 2:length(eg.dat)) {
-  eg.dat[i] <- 0.7 * eg.dat[i - 1] + rnorm(1)
-}
-qplot(x = seq_along(eg.dat), y = eg.dat, geom = "path")
-racf(eg.dat)
-
-
-NULL
-
+#'
+#'library(ggplot2)
+#'library(qwraps)
+#'
+#'# count of, and percentage, of differnt levels of a factor
+#'count(var = "cut", val = "Fair", data = diamonds)
+#'count(var = "cut", val = c("Fair", "Good"), data = diamonds, equal.or.in = "in")
+#'
+#'# parameter estimates from a regression model
+#'fit <- lm(price ~ cut + table, data = diamonds)
+#'params(fit)
+#'
+#'# Example of the qacf function. First generate an AR(1) sequence
+#'set.seed(42)
+#'eg.dat <- vector("numeric", 500)
+#'eg.dat[1] <- 0
+#'for(i in 2:length(eg.dat)) {
+#'  eg.dat[i] <- 0.7 * eg.dat[i - 1] + rnorm(1)
+#'}
+#'qplot(x = seq_along(eg.dat), y = eg.dat, geom = "path")
+#'qacf(eg.dat)
+#'
 
 
