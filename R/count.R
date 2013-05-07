@@ -59,7 +59,7 @@ function(var, val, data, equal.or.in = "equal",
     paste(frmt(n, digits = 0, big.mark = big.mark))
   }
   else if (!show.n & show.percent) {
-    paste(frmt(p*100, digits), "\\% ", sep = "")
+    paste(frmt(p*100, digits), "\\%", sep = "")
   }
   else 
   {
