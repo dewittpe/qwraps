@@ -12,7 +12,7 @@
 #'@references ?
 #'@examples ?
 #'
-
+#' @export load_cache
 load_cache <-
 function(path = "cache/")
 {

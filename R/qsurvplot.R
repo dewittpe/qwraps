@@ -20,7 +20,7 @@
 #'##-- ==>  Define data, use random,
 #'##--	or do  help(data=index)  for the standard data sets.
 #'
-#'
+#' @export qsurvplot
 qsurvplot <-
 # function(fit, show.ci = getOption("qwraps.show.ci", TRUE), l.name = NULL, labels = NULL){
 function(fit, show.ci = getOption("qwraps.show.ci", TRUE)){

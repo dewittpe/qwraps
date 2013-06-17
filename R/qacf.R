@@ -55,6 +55,7 @@
 #'acf(testdf)
 #'qacf(testdf)
 #'
+#' @export qacf
 qacf <-
 function(x, 
                  conf.level = 0.95, 

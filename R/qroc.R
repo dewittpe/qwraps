@@ -58,6 +58,7 @@
 #'    return(list(auc = auc, data = df, plot = q))
 #'  }
 #'
+#' @export qroc
 qroc <-
 function(fit, newdata = NULL, show.auc = FALSE, n = 200){
     require(ggplot2)

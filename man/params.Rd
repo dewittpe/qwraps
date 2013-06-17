@@ -1,51 +1,48 @@
 \name{params}
 \alias{params}
+\alias{params.coxph}
+\alias{params.glm}
+\alias{params.lm}
+\alias{params.survfit}
 \title{generic call for reporting the parameter estiamtes from different regression
 models}
 \usage{
   params(fit, alpha = getOption("qwraps.alpha", 0.05), ...)
+
+  \method{params}{coxph} (fit,
+    alpha = getOption("qwraps.alpha", 0.05), ...)
+
+  \method{params}{glm} (fit,
+    alpha = getOption("qwraps.alpha", 0.05), ...)
+
+  \method{params}{lm} (fit,
+    alpha = getOption("qwraps.alpha", 0.05), ...)
+
+  \method{params}{survfit} (fit,
+    alpha = getOption("qwraps.alpha", 0.05), ...)
 }
 \arguments{
-  \item{fit}{}
+  \item{fit}{a lm, glm, coxph, or survfit object}
 
-  \item{alpha}{}
+  \item{alpha}{significance level, 100(1-alpha)% CIs will
+  be generated}
 
   \item{\dots}{}
 }
-\value{
-  ?
-}
 \description{
-  %% ~~ A concise (1-5 lines) description of what the
-  function does. ~~
+  Parameter estiamtes, confidence intervals, and p-values
+  form regression
 }
 \details{
   %% ~~ If necessary, more details than the description
   above ~~
 }
-\note{
-  ?
-}
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (fit, alpha = getOption("qwraps.alpha", 0.05), ...)
-{
-   UseMethod("params")
- }
+## TO BE WRITTEN
 }
 \author{
   Peter DeWitt
 }
-\references{
-  ?
-}
-\seealso{
-  ?
-}
-\keyword{~kwd1}
-\keyword{~kwd2}
+\keyword{regression}
+\keyword{results}
 

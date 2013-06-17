@@ -26,6 +26,8 @@
 #' pvals <- c(0.000001, 0.12, 0.0001)
 #' frmtp(pvals)
 
+#' @rdname frmt
+#' @export frmt
 frmt <-
 function(x, digits = getOption("qwraps.digits", 3), big.mark = ","){
     idx <- is.na(x)
@@ -34,6 +36,8 @@ function(x, digits = getOption("qwraps.digits", 3), big.mark = ","){
     return(y)
 }
 
+#' @rdname frmt
+#' @export frmtp
 frmtp <-
 function(x, pdigits = getOption("qwraps.pdigits", 4), equal.sign = FALSE)
 {

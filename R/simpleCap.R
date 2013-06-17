@@ -17,7 +17,7 @@
 #'s <- "this.is.a.string"
 #'simpleCap(s)
 #'
-#'
+#' @export simpleCap
 simpleCap <- function(x) {
   s <- gsub(".", " ", x, fixed = TRUE)
   s <- strsplit(s, " ")[[1]]

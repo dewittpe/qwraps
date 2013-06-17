@@ -1,9 +1,13 @@
 \name{frmt}
 \alias{frmt}
+\alias{frmtp}
 \title{format numbers with a set number of digits, including trailing zeros.}
 \usage{
   frmt(x, digits = getOption("qwraps.digits", 3),
     big.mark = ",")
+
+  frmtp(x, pdigits = getOption("qwraps.pdigits", 4),
+    equal.sign = FALSE)
 }
 \arguments{
   \item{x}{vector of numbers to be formated.}
