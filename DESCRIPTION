@@ -24,3 +24,4 @@ Collate:
     'qsurvplot.R'
     'simpleCap.R'
     'qwraps-package.R'
+    'params_frmtr.R'
