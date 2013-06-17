@@ -13,9 +13,15 @@
 
   \item{big.mark}{Default is a comma to separate, i.e.,
   1000 would be reported as 1,000.}
+
+  \item{pdigits}{number of digits to report p-values to.}
+
+  \item{show.equal.sign}{}
 }
 \value{
-  a string.
+  a string of formated numbers.  Non-numbers are empty
+  strings. If the p-value is less than 10^(-pdigits) the
+  return will be '< 10^(-pdigits)
 }
 \description{
   This function is a wrapper for a call to formatC.
@@ -23,22 +29,20 @@
 \details{
   Used to format numbers by both the end user and by
   several of the other functions in the qwraps package.
-}
-\note{
-  %% ~~further notes~~
+  frmt is intended for any numeric response frmtp for
+  formating p-values.
 }
 \examples{
-x <- c(1.12, 1.231, 4.338, 10.4, 1.1)
- frmt(x, 2)
+x <- c(1.12, 1.231, 4.338, 10.4, 1.1, NA, pi, NaN, exp(1))
+frmt(x, 2)
+frmt(x, 3)
+frmt(x*100, 3)
+
+pvals <- c(0.000001, 0.12, 0.0001)
+frmtp(pvals)
 }
 \author{
   Peter DeWitt
-}
-\references{
-  %% ~put references to the literature/web site here ~
-}
-\seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \keyword{~format}
 \keyword{~trailing}

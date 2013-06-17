@@ -28,20 +28,20 @@
 #'@keywords ~kwd1 ~kwd2
 #'@examples
 #'
-#'## Load example data set diamonds from the ggplot2 package
-#'data(diamonds, package = "ggplot2")
+#' ## Load example data set diamonds from the ggplot2 package
+#' data(diamonds, package = "ggplot2")
 #'
-#'## find a report the number and percentage of "Fair", and/or "Good" cut diamonds
-#`count(var = "cut", value = "Fair", data = diamonds, operator = "equal")
-#`count(var = "cut", value = "Good", data = diamonds, operator = "equal")
-#`count(var = "cut", value = c("Fair", "Good"), data = diamonds, operator = "equal")
-#`count(var = "cut", value = c("Fair", "Good"), data = diamonds, operator = "match")
+#' ## find a report the number and percentage of "Fair", and/or "Good" cut diamonds
+#` count(var = "cut", value = "Fair", data = diamonds, operator = "equal")
+#` count(var = "cut", value = "Good", data = diamonds, operator = "equal")
+#` count(var = "cut", value = c("Fair", "Good"), data = diamonds, operator = "equal")
+#` count(var = "cut", value = c("Fair", "Good"), data = diamonds, operator = "match")
 #`
-#`## value can be a character string or a number
-#`count(var = "price", value = "1000", data = diamonds, operator = "equal")
-#`count(var = "price", value = "1000", data = diamonds, operator = "less")
-#`count(var = "price", value = 1000, data = diamonds, operator = "less")
-#`count(var = "price", value = 1000, data = diamonds, operator = "lesseq")
+#` ## value can be a character string or a number
+#` count(var = "price", value = "1000", data = diamonds, operator = "equal")
+#` count(var = "price", value = "1000", data = diamonds, operator = "less")
+#` count(var = "price", value = 1000, data = diamonds, operator = "less")
+#` count(var = "price", value = 1000, data = diamonds, operator = "lesseq")
 #'
 #'
 count <- function(var, value, data = NULL, 

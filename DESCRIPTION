@@ -12,7 +12,6 @@ License: GPL (>=2.0)
 URL: github.com/dewittpe/qwraps
 Collate:
     'count.R'
-    'frmtp.R'
     'frmt.R'
     'load_cache.R'
     'params.coxph.R'
@@ -25,4 +24,3 @@ Collate:
     'qsurvplot.R'
     'simpleCap.R'
     'qwraps-package.R'
-    'params_frmtr.R'
