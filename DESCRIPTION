@@ -25,3 +25,4 @@ Collate:
     'simpleCap.R'
     'qwraps-package.R'
     'params_frmtr.R'
+    'tableone.R'

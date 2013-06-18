@@ -2,8 +2,6 @@
 #'
 #'Remove a "." from a string and capitalize the first letter of every word.
 #'
-#'%% ~~ If necessary, more details than the description above ~~
-#'
 #'@param x string to edit
 #'@return The requested reformatted string.
 #'@note Slight modification of the function noted in the exampleof the chartr

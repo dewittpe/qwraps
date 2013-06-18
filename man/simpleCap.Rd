@@ -14,10 +14,6 @@
   Remove a "." from a string and capitalize the first
   letter of every word.
 }
-\details{
-  %% ~~ If necessary, more details than the description
-  above ~~
-}
 \note{
   Slight modification of the function noted in the
   exampleof the chartr base help file.

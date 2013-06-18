@@ -15,12 +15,9 @@ NULL
 #'@name qwraps-package
 #'@aliases qwraps-package qwraps
 #'@docType package
-#'@author Who wrote it
+#'@author Peter DeWitt
 #'
 #'Maintainer: Peter DeWitt <dewittpe@@gmail.com> 
-#'@seealso ~~ Optional links to other man pages, e.g. ~~ ~~
-#'\code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-#'@references ~~ Literature or other references for background information ~~
 #'@keywords ACF, ROC, AUC, counts, wraps, 
 #'@examples 
 #'
