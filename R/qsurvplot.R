@@ -1,24 +1,24 @@
 #'KM plots
 #'
-#'%% Creat Kaplam-Meier plots via ggplot2
+#' Creat Kaplam-Meier plots via ggplot2
 #'
-#'%% ~~ If necessary, more details than the description above ~~
 #'
-#'@param fit
-#'@param show.ci 
+#'@param fit a \code{survfit} object
+#'@param show.ci logicial, show the confidence intervals for the KM fit
 #'@param l.name: deprecated
 #'@param labels: deprecated
 #'@return ?
-#'@note ?
+#' a ggplot object showing the KM curve(s)
 #'@author Peter DeWitt
-#'@seealso ?
+#'@seealso \code{\link{survfit}}
 #'@references ?
 #'@keywords ~kwd1 ~kwd2
 #'@examples
 #'
-#'##---- Should be DIRECTLY executable !! ----
-#'##-- ==>  Define data, use random,
-#'##--	or do  help(data=index)  for the standard data sets.
+#' library(survival)
+#' leukemia.surv <- survfit(Surv(time, status) ~ x, data = aml) 
+#' plot(leukemia.surv, lty = 2:3)
+#' qsurvplot(leukemia.surv)
 #'
 #' @export qsurvplot
 qsurvplot <-

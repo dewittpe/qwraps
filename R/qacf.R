@@ -2,8 +2,6 @@
 #'
 #'Reproduce the stats::acf plots from the base R graphics package in ggplot2.
 #'
-#'%% ~~ If necessary, more details than the description above ~~
-#'
 #'@param x vector, or data.frame, to be plotted.
 #'@param conf.level confidence intervals for determining 'significant'
 #'autocorrelations.
@@ -15,11 +13,9 @@
 #'colored to indicate statistically significant correlations different from
 #'zero.  This option is only used for the corrleation plot.
 #'@return a ggplot object
-#'@note %% ~~further notes~~
 #'@author Peter DeWitt
-#'@seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
-#'@references %% ~put references to the literature/web site here ~
-#'@keywords ~kwd1 ~kwd2
+#'@seealso  \code{\link{stats::acf}},
+#'@keywords acf pacf
 #'@examples
 #'
 #'# Generate a random data set
@@ -56,17 +52,11 @@
 #'qacf(testdf)
 #'
 #' @export qacf
-qacf <-
-function(x, 
+qacf <- function(x, 
                  conf.level = 0.95, 
                  lag.max = NULL, 
                  type = c("correlation", "covariance", "partial"), 
-                 show.sig = FALSE)
-                 
-{
-  require(reshape2)
-  require(ggplot2)
-
+                 show.sig = FALSE) { 
   series <- deparse(substitute(x))
 
   x <- as.data.frame(x)

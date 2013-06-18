@@ -31,13 +31,6 @@
   Reproduce the stats::acf plots from the base R graphics
   package in ggplot2.
 }
-\details{
-  %% ~~ If necessary, more details than the description
-  above ~~
-}
-\note{
-  %% ~~further notes~~
-}
 \examples{
 # Generate a random data set
 set.seed(42)
@@ -75,12 +68,9 @@ qacf(testdf)
 \author{
   Peter DeWitt
 }
-\references{
-  %% ~put references to the literature/web site here ~
-}
 \seealso{
-  %% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{stats::acf}},
 }
-\keyword{~kwd1}
-\keyword{~kwd2}
+\keyword{acf}
+\keyword{pacf}
 

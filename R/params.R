@@ -2,17 +2,47 @@
 #'models
 #'
 #'Parameter estiamtes, confidence intervals, and p-values form regression
-#`models.
+#'models.  Results are presented in three forms, numeric matrix, character
+#' matrix, and individual strings.  The character matrix and strings are
+#' intended to be used when knitting with LaTeX.
 #'
 #'%% ~~ If necessary, more details than the description above ~~
 #'
 #'@param fit a lm, glm, coxph, or survfit object
 #'@param alpha significance level, 100(1-alpha)% CIs will be generated
-#'@param \dots
+#'@param \dots arguments to pass to params_frmtr as noted in the following
+#'@param param if NULL (default) then a full matrix of of all coeffients will be
+#'returned.  A character represtation of the parameters of interest can be
+#'returned if specified.
+#'@param digits number of digits after the decimal point, included trailing
+#'zeros, to print numbers to: see \code{\link{frmt}}
+#'@param pdigits number of digits to format p-values: see \code{\link{frmtp}}
+#'@param show.ci logical, return confidence intervals
+#'@param show.pval logical, return the p-values
+#'@param alpha significant level, reporting 100(1-alpha)% CIs
+#'@param fun funciton for transforming results.  Particularly useful is
+#' \code{fun = exp} when working with logisitic regression models, for example.
+#'@param show.equal.sign passed to \code{frmtp}
+#'@param unit can be added to the strings returned such that the string could be
+#' xx mg (95% CI: yy, zz; p-value = 0.pppp) instead of just 
+#' xx (95% CI: yy, zz; p-vaue = 0.pppp)
+#'@param big.mark passed to frmt 
+#'@param small.mark passed to frmt
 #'@author Peter DeWitt
+#'@seealso \code{\link{params_frmtr}}
 #'@keywords regression results
 #'@examples
-#' ## TO BE WRITTEN
+#' fit <- lm(mpg ~ wt + cyl, data = mtcars)
+#' params(fit)
+#' params(fit, param = "wt")
+#'
+#' ## logisitic regression
+#' fit <- glm(I(mgp > 25) ~ wt + cyl, data = mtcars, 
+#'            family = binomial(link = "logit"))
+#' # log odds
+#' params(fit)
+#' # odds ratios
+#' params(fit, fun = exp)
 #'
 #' @rdname params
 #' @export params

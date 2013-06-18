@@ -1,6 +1,6 @@
 \name{params_frmtr}
 \alias{params_frmtr}
-\title{helper function, not intended to be called by end users.}
+\title{formating helper function, not intended to be called by end users}
 \usage{
   params_frmtr(rtn, param = NULL,
     digits = getOption("qwraps.digits", 3),
@@ -12,36 +12,48 @@
     small.mark = "")
 }
 \arguments{
-  \item{rtn}{}
+  \item{rtn}{object from params.xxx}
 
-  \item{param}{}
+  \item{param}{if NULL (default) then a full matrix of of
+  all coeffients will be returned.  A character
+  represtation of the parameters of interest can be
+  returned if specified.}
 
-  \item{digits}{}
+  \item{digits}{number of digits after the decimal point,
+  included trailing zeros, to print numbers to: see
+  \code{\link{frmt}}}
 
-  \item{pdigits}{}
+  \item{pdigits}{number of digits to format p-values: see
+  \code{\link{frmtp}}}
 
-  \item{show.ci}{}
+  \item{show.ci}{logical, return confidence intervals}
 
-  \item{show.pval}{}
+  \item{show.pval}{logical, return the p-values}
 
-  \item{alpha}{}
+  \item{alpha}{significant level, reporting 100(1-alpha)%
+  CIs}
 
-  \item{fun}{}
+  \item{fun}{funciton for transforming results.
+  Particularly useful is \code{fun = exp} when working with
+  logisitic regression models, for example.}
 
-  \item{equal.sign}{}
+  \item{show.equal.sign}{passed to \code{frmtp}}
 
-  \item{unit}{}
+  \item{unit}{can be added to the strings returned such
+  that the string could be xx mg (95% CI: yy, zz; p-value =
+  0.pppp) instead of just xx (95% CI: yy, zz; p-vaue =
+  0.pppp)}
 
-  \item{big.mark}{}
+  \item{big.mark}{passed to frmt}
 
-  \item{small.mark}{}
+  \item{small.mark}{passed to frmt}
 }
 \value{
-  ?
+  a list with three elements
 }
 \description{
-  %% ~~ A concise (1-5 lines) description of what the
-  function does. ~~
+  helper function, not intended to be called by end users,
+  for the \code{\link{params}} function.
 }
 \details{
   %% ~~ If necessary, more details than the description
@@ -51,60 +63,13 @@
   ?
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (rtn, param = NULL, digits = getOption("qwraps.digits",
-   3), pdigits = getOption("qwraps.pdigits", 4), show.ci = getOption("qwraps.show.ci",
-   TRUE), show.pval = getOption("qwraps.show.pval", TRUE), alpha = getOption("qwraps.alpha",
-   0.05), fun = NULL, equal.sign = FALSE, unit = "", big.mark = "",
-   small.mark = "")
-{
-   colnames(rtn) <- c("Estimate", "lwr", "upr", "pvalue")
-   if (!is.null(param)) {
-       rtn <- matrix(rtn[rownames(rtn) \%in\% param, ], nrow = length(param))
-   }
-   if (!is.null(fun)) {
-       fun <- match.fun(fun)
-       rtn[, 1:3] <- fun(rtn[, 1:3])
-   }
-   rtn.frmt <- as.data.frame(rtn)
-   rtn.frmt[, 1:3] <- formatC(rtn[, 1:3], digits = digits, format = "f",
-       big.mark = big.mark, small.mark = small.mark)
-   rtn.frmt[, 4] <- frmtp(rtn[, 4], pdigits, equal.sign = FALSE)
-   if (show.ci && show.pval) {
-       rtn.strings <- paste(rtn.frmt[, 1], unit, " (", (1 -
-           alpha) * 100, "\\\% CI: ", rtn.frmt[, 2], ", ", rtn.frmt[,
-           3], "; p ", frmtp(rtn[, 4], pdigits, equal.sign = TRUE),
-           ")", sep = "")
-   }
-   else if (show.ci && !show.pval) {
-       rtn.strings <- paste(rtn.frmt[, 1], unit, " (", (1 -
-           alpha) * 100, "\\\% CI: ", rtn.frmt[, 2], ", ", rtn.frmt[,
-           3], ")", sep = "")
-   }
-   else if (!show.ci && show.pval) {
-       rtn.strings <- paste(rtn.frmt[, 1], unit, " (p ", frmtp(rtn[,
-           4], pdigits, equal.sign = TRUE), ")", sep = "")
-   }
-   else if (!show.ci && !show.pval) {
-       rtn.strings <- paste(rtn.frmt[, 1], unit, sep = "")
-   }
-   names(rtn.strings) <- rownames(rtn)
-   return(list(tab = rtn, tab.frmt = rtn.frmt, strings = rtn.strings))
- }
+## See \\code{\\link{params}}  \\code{params_frmtr} is not intended to be called
+by the end user
 }
 \author{
   Peter DeWitt
 }
-\references{
-  ?
-}
 \seealso{
-  ?
+  \code{\link{params}} \code{\link{frmt}}
 }
-\keyword{~kwd1}
-\keyword{~kwd2}
 

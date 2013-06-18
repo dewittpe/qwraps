@@ -6,31 +6,26 @@
     show.ci = getOption("qwraps.show.ci", TRUE))
 }
 \arguments{
-  \item{fit}{}
+  \item{fit}{a \code{survfit} object}
 
-  \item{show.ci}{}
+  \item{show.ci}{logicial, show the confidence intervals
+  for the KM fit}
 
   \item{l.name:}{deprecated}
 
   \item{labels:}{deprecated}
 }
 \value{
-  ?
+  ? a ggplot object showing the KM curve(s)
 }
 \description{
-  %% Creat Kaplam-Meier plots via ggplot2
-}
-\details{
-  %% ~~ If necessary, more details than the description
-  above ~~
-}
-\note{
-  ?
+  Creat Kaplam-Meier plots via ggplot2
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+library(survival)
+leukemia.surv <- survfit(Surv(time, status) ~ x, data = aml)
+plot(leukemia.surv, lty = 2:3)
+qsurvplot(leukemia.surv)
 }
 \author{
   Peter DeWitt
@@ -39,7 +34,7 @@
   ?
 }
 \seealso{
-  ?
+  \code{\link{survfit}}
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

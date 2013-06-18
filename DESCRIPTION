@@ -5,6 +5,10 @@ Version: 0.1
 Date: 2013-04-12
 Author: Peter DeWitt
 Maintainer: Peter DeWitt <dewittpe@gmail.com>
+Depends:
+    ggplot2,
+    reshape2,
+    survival
 Description: Wrapper functions for creating plots such as ACF, ROC, or survfit
     using ggplot2 instead of the base R plots.  Other handy functions for
     quickly formating results from analyses are included.
