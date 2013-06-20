@@ -42,7 +42,8 @@
 #' \item{tab}{a string of formated numbers.  Non-numbers are empty strings.  
 #' If the p-value is less than 10^(-pdigits) the return will be '<
 #' 10^(-pdigits)}
-#' \item{cgrp}{a character vector for the column groups, the levels of \code{by}
+#' \item{cgrp}{a character vector for the column groups, the levels of
+#' \code{by}}
 #' \item{ncgrp}{a numeric vector for n.cgroup}
 #' \item{rgrp}{a character vector for the row groups}
 #' \item{rcgrp}{a numeric vector for n.cgroup}
