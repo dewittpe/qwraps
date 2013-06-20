@@ -39,7 +39,7 @@ function(x, digits = getOption("qwraps.digits", 3), big.mark = ","){
 #' @rdname frmt
 #' @export frmtp
 frmtp <-
-function(x, pdigits = getOption("qwraps.pdigits", 4), equal.sign = FALSE)
+function(x, pdigits = getOption("qwraps.pdigits", 4), show.equal.sign = FALSE)
 {
   out <- vector("character", length(x))
   out <- formatC(x, pdigits, format = "f")
@@ -47,7 +47,7 @@ function(x, pdigits = getOption("qwraps.pdigits", 4), equal.sign = FALSE)
   idx <- (x < 0.1^pdigits)
   out[idx] <- paste("\\textless", formatC(0.1^pdigits, pdigits, format = "f"))
 
-  if (equal.sign) out[!idx] <- paste("=", out[!idx])
+  if (show.equal.sign) out[!idx] <- paste("=", out[!idx])
 
   out[is.na(x)] <- ""
   return(out)
