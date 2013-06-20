@@ -61,9 +61,16 @@ table 1 for a manuscript.}
   \item{show.equal.sign}{}
 }
 \value{
-  a string of formated numbers.  Non-numbers are empty
-  strings. If the p-value is less than 10^(-pdigits) the
-  return will be '< 10^(-pdigits)
+  a list with the elements intended to be used with
+  \code{\link{Hmisc::latex}} \item{tab}{a string of
+  formated numbers.  Non-numbers are empty strings. If the
+  p-value is less than 10^(-pdigits) the return will be '<
+  10^(-pdigits)} \item{cgrp}{a character vector for the
+  column groups, the levels of \code{by} \item{ncgrp}{a
+  numeric vector for n.cgroup} \item{rgrp}{a character
+  vector for the row groups} \item{rcgrp}{a numeric vector
+  for n.cgroup} \item{rwnms}{a character vector of row
+  names}
 }
 \description{
   Summarize variables by a categorical variable within a
@@ -76,10 +83,32 @@ table 1 for a manuscript.}
 }
 \examples{
 data(diamonds, package = "ggplot2")
-tableone("cut", "color", diamonds[1:50, ])
-tableone("price", "color", diamonds[1:50, ], tests = c("chisq.test", "aov"))
+
+## simple examples for the just getting the matrix for table one
+## this could be used in xtable, Hmisc::latex, and likely other functions
+tableone("cut", "color", diamonds[1:50, ])$tab
+tableone("price", "color", diamonds[1:50, ],
+         tests = c("chisq.test", #' "aov"))$tab
 tableone(c("cut", "price"), "color", diamonds[1:50, ],
-         tests = c("chisq.test", "aov"))
+         tests = c("chisq.test", "aov"))$tab
+
+## A LaTeX table via Hmisc::latex
+
+tab1 <- tableone(c("cut", "price"), "color", diamonds[1:50, ],
+                 tests = c("chisq.test", "aov"))
+Hmisc::latex(tab1$tab,
+             file     = "",
+             title    = "Example from qwraps",
+             ctable   = TRUE,
+             cgroup   = tab1$cgrp,
+             n.cgroup = tab1$ncgrp,
+             colhead  = NULL,
+             rgroup   = tab1$rgrp,
+             n.rgroup = tab1$nrgrp,
+             rowname  = tab1$rwnm,
+             caption  = "Example Table 1 from the qwraps with Hmisc.",
+             label    = "tab:tableone",
+             col.just = rep("r", ncol(tab1$tab)))
 }
 \author{
   Peter DeWitt

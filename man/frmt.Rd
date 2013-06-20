@@ -7,7 +7,7 @@
     big.mark = ",")
 
   frmtp(x, pdigits = getOption("qwraps.pdigits", 4),
-    equal.sign = FALSE)
+    show.equal.sign = FALSE)
 }
 \arguments{
   \item{x}{vector of numbers to be formated.}
