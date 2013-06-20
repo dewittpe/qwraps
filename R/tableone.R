@@ -37,19 +37,49 @@
 #'as 1,000.
 #'@param pdigits number of digits to report p-values to.  
 #'@param show.equal.sign
-#'@return a string of formated numbers.  Non-numbers are empty strings.  
-#' If the p-value is less than 10^(-pdigits) the return will be '< 10^(-pdigits) 
+#'@return a list with the elements intended to be used with
+#' \code{\link{Hmisc::latex}}
+#' \item{tab}{a string of formated numbers.  Non-numbers are empty strings.  
+#' If the p-value is less than 10^(-pdigits) the return will be '<
+#' 10^(-pdigits)}
+#' \item{cgrp}{a character vector for the column groups, the levels of \code{by}
+#' \item{ncgrp}{a numeric vector for n.cgroup}
+#' \item{rgrp}{a character vector for the row groups}
+#' \item{rcgrp}{a numeric vector for n.cgroup}
+#' \item{rwnms}{a character vector of row names}
+#'
 #'@author Peter DeWitt
 #'@keywords ~summary table 
 #'@examples
 #' data(diamonds, package = "ggplot2")
-#' tableone("cut", "color", diamonds[1:50, ])
-#' tableone("price", "color", diamonds[1:50, ], tests = c("chisq.test", "aov"))
+#' 
+#' ## simple examples for the just getting the matrix for table one
+#' ## this could be used in xtable, Hmisc::latex, and likely other functions
+#' tableone("cut", "color", diamonds[1:50, ])$tab
+#' tableone("price", "color", diamonds[1:50, ], 
+#'          tests = c("chisq.test", #' "aov"))$tab
 #' tableone(c("cut", "price"), "color", diamonds[1:50, ],
-#'          tests = c("chisq.test", "aov"))
-
-#' @export tableone
-
+#'          tests = c("chisq.test", "aov"))$tab
+#'
+#' ## A LaTeX table via Hmisc::latex
+#' 
+#' tab1 <- tableone(c("cut", "price"), "color", diamonds[1:50, ],
+#'                  tests = c("chisq.test", "aov"))
+#' Hmisc::latex(tab1$tab, 
+#'              file     = "",
+#'              title    = "Example from qwraps",
+#'              ctable   = TRUE,
+#'              cgroup   = tab1$cgrp,
+#'              n.cgroup = tab1$ncgrp,
+#'              colhead  = NULL,
+#'              rgroup   = tab1$rgrp,
+#'              n.rgroup = tab1$nrgrp,
+#'              rowname  = tab1$rwnm,
+#'              caption  = "Example Table 1 from the qwraps with Hmisc.",
+#'              label    = "tab:tableone",
+#'              col.just = rep("r", ncol(tab1$tab)))
+#'
+#' @export tableone 
 tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
                      margin = 2, overall = TRUE, 
                      stat.con.1 = mean,
@@ -80,17 +110,61 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
                     contab(v, by, data, stat.con.1, stat.con.2, tests[2])
                   }})
 
+  # the numeric result
   rtn <- do.call(rbind, rtn)
 
+  # frmted return 
+  rtn.frmt <- lapply(vars, 
+                     function(v) {
+                       if (is.factor(data[, v])) {
+                         cattab(v, by, data, margin, tests[1], fisher, frmt = TRUE)
+                       } else {
+                         contab(v, by, data, stat.con.1, stat.con.2, tests[2], frmt = TRUE)
+                     }})
+  rtn.frmt <- do.call(rbind, rtn.frmt)
+
+  # formating returns
+  cgrp <- ncgrp <- rgrp <- nrgrp <- rwnm <- NULL
+
   if (!overall) {
-    rtn <- rtn[-(1:2), ]
+    rtn   <- rtn[-(1:2), ]
+    cgrp  <- levels(data[, by])
   }
 
-  return(rtn) 
+  if (overall) { 
+    cgrp  <- c("Overall", levels(data[, by]))
+  } 
+
+  ncgrp <- rep(2, length(cgrp))
+
+  if (!is.null(tests)) { 
+    cgrp  <- c(cgrp, "p-value")
+    ncgrp <- c(ncgrp, 1)
+  }
+
+  rgrp <- sapply(vars, simpleCap)
+  nrgrp <- sapply(vars, 
+                  function(v) { 
+                    nlevels(data[, v]) + as.numeric(is.null(levels(data[, v]))) 
+                  })
+  rwnm <- lapply(vars, 
+                 function(v) { 
+                   if (is.null(levels(data[, v]))) { 
+                     simpleCap(v)
+                   } else {
+                     levels(data[, v]) 
+                   }
+                 }) 
+  rwnm <- do.call(c, rwnm)
+
+  return(list(tab  = rtn,  tab.frmt = rtn.frmt,
+              cgrp = cgrp, ncgrp = ncgrp, 
+              rgrp = rgrp, nrgrp = nrgrp,
+              rwnm = rwnm)) 
 }
 
 # cattab is a helperfunction for tablone
-cattab <- function(var, by, data, margin, test, fisher) { 
+cattab <- function(var, by, data, margin, test, fisher, frmt = FALSE) { 
   tab <- table(data[, var], data[, by])
   tabp <- prop.table(tab, margin)
 
@@ -119,11 +193,24 @@ cattab <- function(var, by, data, margin, test, fisher) {
     out <- cbind(out, c(chitest$p.value, rep(NA, nrow(out) - 1))) 
   }
 
-  return(out)
+  if (!frmt) { 
+    return(out)
+  } else {
+    outf <- out
+    for(i in seq(1, ncol(out) - 1, by = 2)) {
+      outf[, i]     <- frmt(out[, i],           digits = 0)
+      outf[, i + 1] <- frmt(out[, i + 1] * 100, digits = 1)
+    }
+    
+    if (!is.null(test)) { 
+      outf[, ncol(out)] <- frmtp(out[, ncol(out)])
+    }
+    return(outf)
+  }
 }
 
 # helper function for tableone
-contab <- function(var, by, data, stat.con.1, stat.con.2, test) {
+contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
   f1   <- match.fun(stat.con.1)
   f2   <- match.fun(stat.con.2)
   tab1 <- tapply(data[, var], data[, by], FUN = f1)
@@ -146,7 +233,19 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test) {
       stop("only t.test and aov can be called at this time.")
     }
   } 
-  return(out)
-}
 
+  if (!frmt) { 
+    return(out)
+  } else {
+    outf <- out
+    for(i in seq(1, ncol(out) - 1, by = 2)) {
+      outf[, i] <- frmt(out[, i], digits = 0)
+      outf[, i + 1] <- frmt(out[, i + 1] * 100, digits = 1)
+    }
+    if (!is.null(test)) { 
+      outf[, ncol(out)] <- frmtp(out[, ncol(out)])
+    }
+    return(outf)
+  }
+}
 
