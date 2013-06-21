@@ -41,7 +41,7 @@ params_frmtr <- function(rtn,
                          show.pval = getOption("qwraps.show.pval", TRUE),
                          alpha   = getOption("qwraps.alpha", 0.05),
                          fun     = NULL,
-                         equal.sign = FALSE,
+                         show.equal.sign = FALSE,
                          unit    = "",
                          big.mark = "",
                          small.mark = "")
@@ -66,13 +66,13 @@ params_frmtr <- function(rtn,
                              big.mark = big.mark,
                              small.mark = small.mark) 
  
-  rtn.frmt[, 4] <- frmtp(rtn[, 4], pdigits, equal.sign = FALSE)
+  rtn.frmt[, 4] <- frmtp(rtn[, 4], pdigits, show.equal.sign = FALSE)
 
   if (show.ci && show.pval){
     rtn.strings <- paste(rtn.frmt[, 1], unit, 
                          " (", (1-alpha)*100, "\\% CI: ",
                          rtn.frmt[, 2], ", ", rtn.frmt[, 3], "; p ",
-                         frmtp(rtn[, 4], pdigits, equal.sign = TRUE), ")", 
+                         frmtp(rtn[, 4], pdigits, show.equal.sign = TRUE), ")", 
                          sep = "")
   } 
   else if(show.ci && !show.pval){
@@ -84,7 +84,7 @@ params_frmtr <- function(rtn,
   else if(!show.ci && show.pval){
     rtn.strings <- paste(rtn.frmt[, 1], unit, 
                          " (p ",
-                         frmtp(rtn[, 4], pdigits, equal.sign = TRUE), ")", 
+                         frmtp(rtn[, 4], pdigits, show.equal.sign = TRUE), ")", 
                          sep = "")
   }
   else if(!show.ci && !show.pval){
