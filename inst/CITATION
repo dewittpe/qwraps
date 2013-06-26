@@ -3,5 +3,7 @@ citHeader("To cite qwraps, please use:")
 citEntry(entry = "misc",
   author = "Peter DeWitt",
   title = "qwraps: Quick wraps for common ggplots and reproducable research",
-  url = "https://github.com/dewittpe/qwraps"
+  url = "https://github.com/dewittpe/qwraps",
+  textVersion = "P. DeWitt. qwraps: Quick wraps for common ggplots and
+reproducable research."
 )
