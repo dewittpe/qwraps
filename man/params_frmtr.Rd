@@ -8,7 +8,7 @@
     show.ci = getOption("qwraps.show.ci", TRUE),
     show.pval = getOption("qwraps.show.pval", TRUE),
     alpha = getOption("qwraps.alpha", 0.05), fun = NULL,
-    equal.sign = FALSE, unit = "", big.mark = "",
+    show.equal.sign = FALSE, unit = "", big.mark = "",
     small.mark = "")
 }
 \arguments{
