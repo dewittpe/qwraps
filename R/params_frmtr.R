@@ -30,7 +30,7 @@
 #'@seealso \code{\link{params}} \code{\link{frmt}}
 #'@examples
 #' ## See \code{\link{params}}  \code{params_frmtr} is not intended to be called
-#' by the end user
+#' ## by the end user
 #'
 #' @export 
 params_frmtr <- function(rtn, 

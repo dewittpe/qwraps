@@ -24,6 +24,9 @@
 qsurvplot <-
 # function(fit, show.ci = getOption("qwraps.show.ci", TRUE), l.name = NULL, labels = NULL){
 function(fit, show.ci = getOption("qwraps.show.ci", TRUE)){
+  # Reassure R CMD check that the use of these variable names in ggplot
+  # won't affect a global variable
+  surv <- n.censor <- lower <- upper <- NULL
 
   n <- length(names(fit$strata))
 
