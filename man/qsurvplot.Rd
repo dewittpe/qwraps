@@ -19,7 +19,7 @@
   ? a ggplot object showing the KM curve(s)
 }
 \description{
-  Creat Kaplam-Meier plots via ggplot2
+  Create Kaplan-Meier plots via ggplot2
 }
 \examples{
 library(survival)

@@ -1,6 +1,6 @@
 #'KM plots
 #'
-#' Creat Kaplam-Meier plots via ggplot2
+#' Create Kaplan-Meier plots via ggplot2
 #'
 #'
 #'@param fit a \code{survfit} object
