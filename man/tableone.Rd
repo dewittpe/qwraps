@@ -1,4 +1,5 @@
 \name{tableone}
+\alias{print.tableone}
 \alias{tableone}
 \title{Tableone summarizes a selection of the data set as would be presented in a
 table 1 for a manuscript.}
@@ -7,6 +8,8 @@ table 1 for a manuscript.}
     margin = 2, overall = TRUE, stat.con.1 = mean,
     stat.con.2 = sd, tests = c("chisq.test", "t.test"),
     fisher = TRUE, big.mark = ",")
+
+  \method{print}{tableone} (tab1, ...)
 }
 \arguments{
   \item{vars}{characer vector of the names of the variables

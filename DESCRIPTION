@@ -8,8 +8,7 @@ Maintainer: Peter DeWitt <dewittpe@gmail.com>
 Depends:
     ggplot2,
     reshape2,
-Suggests:
-    Hmisc
+    Hmisc,
 Description: Wrapper functions for creating plots such as ACF, ROC, or survfit
     using ggplot2 instead of the base R plots.  Other handy functions for
     quickly formating results from analyses are included.
