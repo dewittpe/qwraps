@@ -258,19 +258,19 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
 #' @rdname tableone
 #' @method print tableone
 #' @S3method print tableone
-print.tableone <- function(tab1, ...) {
+print.tableone <- function(tab1, file = getOption("qwraps.tableone.file", ""), 
+                           title = getOption("qwraps.tableone.title", "",),
+                           ctable = getOption("qwraps.tableone.ctable", TRUE),
+                           ...) {
 latex(tab1[["tab.frmt"]],
-#       file     = "",
-#       title    = "Example from qwraps",
-#       ctable   = TRUE,
-      cgroup   = tab1[[cgrp]],
-      n.cgroup = tab1[[ncgrp]],
-#       colhead  = NULL,
-      rgroup   = tab1[[rgrp]],
-      n.rgroup = tab1[[nrgrp]],
-      rowname  = tab1[[rwnm]],
-#       caption  = "Example Table 1 from the qwraps with Hmisc.",
-#       label    = "tab:tableone",
+      file     = file,
+      title    = title,
+      ctable   = ctable,
+      cgroup   = tab1[['cgrp']],
+      n.cgroup = tab1[['ncgrp']],
+      rgroup   = tab1[['rgrp']],
+      n.rgroup = tab1[['nrgrp']],
+      rowname  = tab1[['rwnm']],
       col.just = rep("r", ncol(tab1$tab.frmt)),
       ...) 
 }

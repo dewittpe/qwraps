@@ -9,7 +9,11 @@ table 1 for a manuscript.}
     stat.con.2 = sd, tests = c("chisq.test", "t.test"),
     fisher = TRUE, big.mark = ",")
 
-  \method{print}{tableone} (tab1, ...)
+  \method{print}{tableone} (tab1,
+    file = getOption("qwraps.tableone.file", ""),
+    title = getOption("qwraps.tableone.title", "", ),
+    ctable = getOption("qwraps.tableone.ctable", TRUE),
+    ...)
 }
 \arguments{
   \item{vars}{characer vector of the names of the variables
