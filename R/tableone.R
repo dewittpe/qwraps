@@ -259,16 +259,16 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
 #' @method print tableone
 #' @S3method print tableone
 print.tableone <- function(tab1, ...) {
-latex(tab1[, "tab.frmt"],
+latex(tab1[["tab.frmt"]],
 #       file     = "",
 #       title    = "Example from qwraps",
 #       ctable   = TRUE,
-      cgroup   = tab1$cgrp,
-      n.cgroup = tab1$ncgrp,
+      cgroup   = tab1[[cgrp]],
+      n.cgroup = tab1[[ncgrp]],
 #       colhead  = NULL,
-      rgroup   = tab1$rgrp,
-      n.rgroup = tab1$nrgrp,
-      rowname  = tab1$rwnm,
+      rgroup   = tab1[[rgrp]],
+      n.rgroup = tab1[[nrgrp]],
+      rowname  = tab1[[rwnm]],
 #       caption  = "Example Table 1 from the qwraps with Hmisc.",
 #       label    = "tab:tableone",
       col.just = rep("r", ncol(tab1$tab.frmt)),
