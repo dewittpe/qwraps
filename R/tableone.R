@@ -50,7 +50,7 @@
 #' \item{rwnms}{a character vector of row names}
 #'
 #'@author Peter DeWitt
-#'@keywords ~summary table 
+#'@keywords {summary table}
 #'@examples
 #' data(diamonds, package = "ggplot2")
 #' 
@@ -79,6 +79,9 @@
 #'              caption  = "Example Table 1 from the qwraps with Hmisc.",
 #'              label    = "tab:tableone",
 #'              col.just = rep("r", ncol(tab1$tab)))
+#'
+#' ## A better and easier way to get the table into a LaTeX file
+#' print(tab1)
 #'
 #' @export tableone 
 tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
@@ -258,8 +261,7 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
 #' @rdname tableone
 #' @method print tableone
 #' @S3method print tableone
-print.tableone <- function(tab1, file = getOption("qwraps.tableone.file", ""), 
-                           title = getOption("qwraps.tableone.title", "",),
+print.tableone <- function(tab1, file = "", title = "",
                            ctable = getOption("qwraps.tableone.ctable", TRUE),
                            ...) {
 latex(tab1[["tab.frmt"]],

@@ -9,9 +9,7 @@ table 1 for a manuscript.}
     stat.con.2 = sd, tests = c("chisq.test", "t.test"),
     fisher = TRUE, big.mark = ",")
 
-  \method{print}{tableone} (tab1,
-    file = getOption("qwraps.tableone.file", ""),
-    title = getOption("qwraps.tableone.title", "", ),
+  \method{print}{tableone} (tab1, file = "", title = "",
     ctable = getOption("qwraps.tableone.ctable", TRUE),
     ...)
 }
@@ -116,10 +114,13 @@ Hmisc::latex(tab1$tab,
              caption  = "Example Table 1 from the qwraps with Hmisc.",
              label    = "tab:tableone",
              col.just = rep("r", ncol(tab1$tab)))
+
+## A better and easier way to get the table into a LaTeX file
+print(tab1)
 }
 \author{
   Peter DeWitt
 }
-\keyword{~summary}
-\keyword{table}
+\keyword{{summary}
+\keyword{table}}
 
