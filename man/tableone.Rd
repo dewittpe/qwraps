@@ -11,6 +11,7 @@ table 1 for a manuscript.}
 
   \method{print}{tableone} (tab1, file = "", title = "",
     ctable = getOption("qwraps.tableone.ctable", TRUE),
+    cgroup, n.cgroup, rgroup, n.rgroup, rowname, col.just,
     ...)
 }
 \arguments{

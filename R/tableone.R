@@ -261,18 +261,26 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
 #' @rdname tableone
 #' @method print tableone
 #' @S3method print tableone
-print.tableone <- function(tab1, file = "", title = "",
+print.tableone <- function(tab1, 
+                           file = "", 
+                           title = "",
                            ctable = getOption("qwraps.tableone.ctable", TRUE),
+                           cgroup,
+                           n.cgroup,
+                           rgroup,
+                           n.rgroup,
+                           rowname,
+                           col.just, 
                            ...) {
 latex(tab1[["tab.frmt"]],
       file     = file,
       title    = title,
       ctable   = ctable,
-      cgroup   = tab1[['cgrp']],
-      n.cgroup = tab1[['ncgrp']],
-      rgroup   = tab1[['rgrp']],
-      n.rgroup = tab1[['nrgrp']],
-      rowname  = tab1[['rwnm']],
-      col.just = rep("r", ncol(tab1$tab.frmt)),
+      cgroup   = if (missing(cgroup))   tab1[['cgrp']] else  cgroup, 
+      n.cgroup = if (missing(n.cgroup)) tab1[['ncgrp']] else n.cgroup, 
+      rgroup   = if (missing(rgroup))   tab1[['rgrp']] else  rgroup, 
+      n.rgroup = if (missing(n.rgroup)) tab1[['nrgrp']] else n.rgroup, 
+      rowname  = if (missing(rowname))  tab1[['rwnm']] else  rowname, 
+      col.just = if (missing(col.just)) rep("r", ncol(tab1[['tab.frmt']])) else col.just, 
       ...) 
 }
