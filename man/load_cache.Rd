@@ -5,32 +5,18 @@
   load_cache(path = "cache/")
 }
 \arguments{
-  \item{dir}{}
+  \item{path}{the direct, or realtive, path to the cache
+  director to lazyLoad}
 }
 \value{
-  ?
+  Nothing, but this call has lazyLoad-ed all the objects in
+  \code{path}
 }
 \description{
-  %% ~~ A concise (1-5 lines) description of what the
-  function does. ~~
-}
-\details{
-  %% ~~ If necessary, more details than the description
-  above ~~
-}
-\note{
-  ?
-}
-\examples{
-?
+  Lazy load the objects in a cache directory.  This is
+  helpful for those knitting projects.
 }
 \author{
   Peter DeWitt
-}
-\references{
-  ?
-}
-\seealso{
-  ?
 }
 

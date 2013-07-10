@@ -1,30 +1,26 @@
 #'load cache
 #'
-#'%% ~~ A concise (1-5 lines) description of what the function does. ~~
+#' Lazy load the objects in a cache directory.  This is helpful for those
+#' knitting projects.
 #'
-#'%% ~~ If necessary, more details than the description above ~~
-#'
-#'@param dir
-#'@return ?
-#'@note ?
+#'@param path the direct, or realtive, path to the cache director to lazyLoad
+#'@return Nothing, but this call has lazyLoad-ed all the objects in \code{path}
 #'@author Peter DeWitt
-#'@seealso ?
-#'@references ?
-#'@examples ?
 #'
-#' @export load_cache
+#'@export load_cache
 load_cache <-
 function(path = "cache/")
 {
-  cwd <- getwd()
+  # cwd <- getwd()
   fs <- grep(".rdx", dir(path), value = TRUE)
   fs <- strsplit(fs, ".rdx", fixed = TRUE)
-  setwd(path)
+  # setwd(path)
+  cat("Loading: ")
   for(f in fs) {
-    cat(f, "\n")
-    lazyLoad(f, envir = parent.frame(n = 2))
+    print(f)
+    lazyLoad(paste(path, f, sep = ""), envir = parent.frame(n = 2))
   }
-  setwd(cwd)
+  # setwd(cwd)
 }
 
 

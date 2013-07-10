@@ -13,7 +13,7 @@ May of the functions are particularly useful for writing data analysis reports
 via `knitr` http://yihui.name/knitr/ and LaTeX.
 
 
-## Development
+## How to get qwraps in R
 
 To install the development version of qwraps, it's easiest to use the
 `devtools`, https://github.com/hadley/devtools, package:
@@ -21,3 +21,9 @@ To install the development version of qwraps, it's easiest to use the
     # install.packages("devtools")
     library(devtools)
     install_github("qwraps", username = "dewittpe")
+
+If you are working on a Windows machine you will need to download and install
+`Rtools` http://cran.r-project.org/bin/windows/Rtools/ before `devtools` will
+work for you.
+
+
