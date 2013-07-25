@@ -1,0 +1,23 @@
+\name{trimWhite}
+\alias{trimWhite}
+\title{Trim White Space from strings}
+\usage{
+  trimWhite(x)
+}
+\arguments{
+  \item{x}{string}
+}
+\value{
+  sting with no leading or trailing white space.
+}
+\description{
+  Leading and trailing white space is removed from strings.
+}
+\examples{
+s <- c("   this is a string", "what about the end     "), "  or both?  ")
+trimWhite(s)
+}
+\author{
+  Peter DeWitt
+}
+
