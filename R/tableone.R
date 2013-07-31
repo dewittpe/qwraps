@@ -205,7 +205,7 @@ cattab <- function(var, by, data, margin, test, fisher, frmt = FALSE) {
     outf <- out
     for(i in seq(1, ncol(out) - 1, by = 2)) {
       outf[, i]     <- frmt(out[, i],           digits = 0)
-      outf[, i + 1] <- frmt(out[, i + 1] * 100, digits = 1)
+      outf[, i + 1] <- frmt(out[, i + 1], digits = 1)
     }
     
     if (!is.null(test)) { 
