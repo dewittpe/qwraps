@@ -100,9 +100,9 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
     data <- na.omit(data[, c(vars, by)])
   }
 
-  modes <- sapply(data, mode) %in% "numeric"
+  modes <- sapply(data[, vars], mode) %in% "numeric"
   if (any(!(modes))) {
-    e <- paste(names(modes)[!mode], "need to be factors or numeric")
+    e <- paste(names(modes)[!modes], "need to be factors or numeric")
     stop(e)
   }
 
@@ -131,8 +131,9 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
   cgrp <- ncgrp <- rgrp <- nrgrp <- rwnm <- NULL
 
   if (!overall) {
-    rtn   <- rtn[-(1:2), ]
-    cgrp  <- levels(data[, by])
+    rtn      <- rtn[, -c(1,2)]
+    rtn.frmt <- rtn.frmt[, -c(1,2)]
+    cgrp     <- levels(data[, by])
   }
 
   if (overall) { 
