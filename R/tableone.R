@@ -170,7 +170,7 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
   return(out)
 }
 
-# cattab is a helperfunction for tablone
+# cattab is a helperfunction for tableone
 cattab <- function(var, by, data, margin, test, fisher, frmt = FALSE) { 
   tab <- table(data[, var], data[, by])
   tabp <- prop.table(tab, margin)
@@ -186,13 +186,19 @@ cattab <- function(var, by, data, margin, test, fisher, frmt = FALSE) {
       chitest <- suppressWarnings(chisq.test(tab))
       if (any(chitest$expected < 5)) {
         if (fisher) {
-          chitest <- fisher.test(tab)
+          chitest <- try(fisher.test(tab), silent = TRUE)
+          if (class(chitest) == "try-error") {
+            chitest <- fisher.test(tab, simulate.p.value = TRUE)
+          }
         } else { 
           warning("Expected cell count less than 5")
         }
       }
     } else if (test == "fisher.test"){
-      chitest <- fisher.test(tab)
+      chitest <- try(fisher.test(tab), silent = TRUE)
+      if (class(chitest) == "try-error") {
+        chitest <- fisher.test(tab, simulate.p.value = TRUE)
+      }
     } else {
       stop("test[1] only chisq.test or fisher.test is currently allowed")
     }
