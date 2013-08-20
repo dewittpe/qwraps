@@ -10,9 +10,8 @@
 #'@param val value(s)/level(s) of interest to count
 #'@param data data.frame with var included, default to NULL.  Function is
 #' intended to be used with data in data frames.
-#'@param operator The boolean operator to use.  Options are == by default if
-#' 'length(value) == 1' and '\%in\%' by default if 'length(value) > 1.'  The
-#' match uses the '\%in\%' operator.
+#'@param operator The boolean operator to use.  Default is the match, i.e.,
+#'\code{%in%} operator.
 #'@param na.rm a logical indicating whether missing values should be removed.
 #'@param show.n Boolean, default to TRUE, to show the raw counts.
 #'@param show.percent Boolean, default to TRUE, for reporting the percentage
@@ -44,8 +43,9 @@
 #` count(var = "price", value = 1000, data = diamonds, operator = "lesseq")
 #'
 #'
+
 count <- function(var, value, data = NULL, 
-                  operator = c("equal", "match", "less", "greater", "lesseq",
+                  operator = c("match", "equal", "less", "greater", "lesseq",
                                "greatereq", "is.na", "isnot.na"), 
                   na.rm = FALSE, 
                   show.n = TRUE,
@@ -64,6 +64,10 @@ count <- function(var, value, data = NULL,
 
   if (length(var) != 1) {
     stop("length(var) == 1 required.")
+  }
+
+  if (length(operator) > 1) {
+    operator <- operator[1]
   }
 
   n <- switch(operator,

@@ -22,8 +22,9 @@
 #' the \code{mean}
 #'@param stat.con.2 second function to sumamry continuous variables with,
 #' adefault is \code{sd} 
-#'@param tests a vector of length two with the statistical tests to report for 1
-#' categorical variables and 2 continuous variables.  Defaults are for the
+#'@param tests a vector of length two with the statistical tests to report for 1)
+#' categorical variables and 2) continuous variables.  If set to NULL, then the
+#' tests and associated p-values are omitted from the output.  Defaults are for the
 #' \code{chisq.test} and the \code{t.test}.  If the value is set to NULL the tests
 #' will be omitted from the output.  Only \code{chisq.test} and
 #' \code{fisher.test} are allowed for categorical variables at this time.

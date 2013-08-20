@@ -3,7 +3,7 @@
 \title{Count and percentage of a factor level.}
 \usage{
   count(var, value, data = NULL,
-    operator = c("equal", "match", "less", "greater", "lesseq", "greatereq", "is.na", "isnot.na"),
+    operator = c("match", "equal", "less", "greater", "lesseq", "greatereq", "is.na", "isnot.na"),
     na.rm = FALSE, show.n = TRUE, show.percent = TRUE,
     digits = getOption("qwraps.percent.digits", 1),
     big.mark = ",",
@@ -18,10 +18,8 @@
   NULL.  Function is intended to be used with data in data
   frames.}
 
-  \item{operator}{The boolean operator to use.  Options are
-  == by default if 'length(value) == 1' and '\%in\%' by
-  default if 'length(value) > 1.'  The match uses the
-  '\%in\%' operator.}
+  \item{operator}{The boolean operator to use.  Default is
+  the match, i.e., \code{%in%} operator.}
 
   \item{na.rm}{a logical indicating whether missing values
   should be removed.}

@@ -43,16 +43,17 @@ table 1 for a manuscript.}
   variables with, adefault is \code{sd}}
 
   \item{tests}{a vector of length two with the statistical
-  tests to report for 1 categorical variables and 2
-  continuous variables.  Defaults are for the
-  \code{chisq.test} and the \code{t.test}.  If the value is
-  set to NULL the tests will be omitted from the output.
-  Only \code{chisq.test} and \code{fisher.test} are allowed
-  for categorical variables at this time. Regardless of the
-  test function specified, the function should return a
-  list value named \code{p.value}.  The second test can be
-  either a t.test or a aov. more tests will be allowed in
-  later versions.}
+  tests to report for 1) categorical variables and 2)
+  continuous variables.  If set to NULL, then the tests and
+  associated p-values are omitted from the output.
+  Defaults are for the \code{chisq.test} and the
+  \code{t.test}.  If the value is set to NULL the tests
+  will be omitted from the output.  Only \code{chisq.test}
+  and \code{fisher.test} are allowed for categorical
+  variables at this time. Regardless of the test function
+  specified, the function should return a list value named
+  \code{p.value}.  The second test can be either a t.test
+  or a aov. more tests will be allowed in later versions.}
 
   \item{fisher}{logicial if TRUE and tests[1] ==
   "chisq.test" then if \code{any(chisq.test()$expected) <
