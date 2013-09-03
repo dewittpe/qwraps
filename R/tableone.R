@@ -149,6 +149,13 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
   }
 
   rgrp <- sapply(vars, simpleCap)
+
+  if (!complete) {
+    n <- paste("(n = ", sapply(vars, function(x) sum(!is.na(data[, x]))), ")",
+               sep = "")
+    rgrp <- paste(rgrp, n) 
+  }
+  
   nrgrp <- sapply(vars, 
                   function(v) { 
                     nlevels(data[, v]) + as.numeric(is.null(levels(data[, v]))) 
