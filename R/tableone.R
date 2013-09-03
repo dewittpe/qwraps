@@ -36,6 +36,7 @@
 #' \code{fisher.exact}. This option is ignored if \code{tests[1] == "fisher.test"}.
 #'@param big.mark Default is a comma to separate, i.e., 1000 would be reported
 #'as 1,000.
+#'@param digits number of digits to round stat.con.1 and stat.con.2 
 #'@param pdigits number of digits to report p-values to.  
 #'@param show.equal.sign
 #'@return a list with the elements intended to be used with
@@ -91,6 +92,7 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
                      stat.con.2 = sd,
                      tests = c("chisq.test", "t.test"), 
                      fisher = TRUE,
+                     digits = getOption("qwraps.digits", 3),
                      big.mark = "," ) {
 
   if (is.null(data)) { 
@@ -231,7 +233,8 @@ cattab <- function(var, by, data, margin, test, fisher, frmt = FALSE) {
 }
 
 # helper function for tableone
-contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
+contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE,
+                   digits) {
   f1   <- match.fun(stat.con.1)
   f2   <- match.fun(stat.con.2)
   tab1 <- tapply(data[, var], data[, by], FUN = f1)
@@ -260,8 +263,8 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE) {
   } else {
     outf <- out
     for(i in seq(1, ncol(out) - 1, by = 2)) {
-      outf[, i] <- frmt(out[, i], digits = 0)
-      outf[, i + 1] <- frmt(out[, i + 1], digits = 1)
+      outf[, i] <- frmt(out[, i], digits = digits)
+      outf[, i + 1] <- frmt(out[, i + 1], digits = digits)
     }
     if (!is.null(test)) { 
       outf[, ncol(out)] <- frmtp(out[, ncol(out)])

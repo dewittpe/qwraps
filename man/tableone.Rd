@@ -7,7 +7,8 @@ table 1 for a manuscript.}
   tableone(vars, by = NULL, data = NULL, complete = TRUE,
     margin = 2, overall = TRUE, stat.con.1 = mean,
     stat.con.2 = sd, tests = c("chisq.test", "t.test"),
-    fisher = TRUE, big.mark = ",")
+    fisher = TRUE, digits = getOption("qwraps.digits", 3),
+    big.mark = ",")
 
   \method{print}{tableone} (tab1, file = "", title = "",
     ctable = getOption("qwraps.tableone.ctable", TRUE),
@@ -62,6 +63,9 @@ table 1 for a manuscript.}
 
   \item{big.mark}{Default is a comma to separate, i.e.,
   1000 would be reported as 1,000.}
+
+  \item{digits}{number of digits to round stat.con.1 and
+  stat.con.2}
 
   \item{pdigits}{number of digits to report p-values to.}
 
