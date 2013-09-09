@@ -114,7 +114,8 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
                   if (is.factor(data[, v])) {
                     cattab(v, by, data, margin, tests[1], fisher)
                   } else {
-                    contab(v, by, data, stat.con.1, stat.con.2, tests[2])
+                    contab(v, by, data, stat.con.1, stat.con.2, tests[2], 
+                           digits = digits)
                   }})
 
   # the numeric result
@@ -126,7 +127,8 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
                        if (is.factor(data[, v])) {
                          cattab(v, by, data, margin, tests[1], fisher, frmt = TRUE)
                        } else {
-                         contab(v, by, data, stat.con.1, stat.con.2, tests[2], frmt = TRUE)
+                         contab(v, by, data, stat.con.1, stat.con.2, tests[2],
+                                frmt = TRUE, digits = digits)
                      }})
   rtn.frmt <- do.call(rbind, rtn.frmt)
 
