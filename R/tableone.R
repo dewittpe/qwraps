@@ -167,7 +167,10 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
   rwnm <- lapply(vars, 
                  function(v) { 
                    if (is.null(levels(data[, v]))) { 
-                     simpleCap(v)
+                     # simpleCap(v)
+                     # paste(deparse(substitute(stat.con.1)), ", ", 
+                     #       deparse(substitute(stat.con.2)), sep = "")
+                     ""
                    } else {
                      levels(data[, v]) 
                    }
