@@ -87,7 +87,8 @@
 #'
 #' @export tableone 
 tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
-                     margin = 2, overall = TRUE, 
+                     margin = 2, 
+                     overall = TRUE, 
                      stat.con.1 = mean,
                      stat.con.2 = sd,
                      tests = c("chisq.test", "t.test"), 
@@ -103,7 +104,7 @@ tableone <- function(vars, by = NULL, data = NULL, complete = TRUE,
     data <- na.omit(data[, c(vars, by)])
   }
 
-  modes <- sapply(data[, vars], mode) %in% "numeric"
+  modes <- sapply(data[vars], mode) %in% "numeric"
   if (any(!(modes))) {
     e <- paste(names(modes)[!modes], "need to be factors or numeric")
     stop(e)
@@ -242,11 +243,15 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE,
                    digits) {
   f1   <- match.fun(stat.con.1)
   f2   <- match.fun(stat.con.2)
-  tab1 <- tapply(data[, var], data[, by], FUN = f1)
-  tab2 <- tapply(data[, var], data[, by], FUN = f2)
-  out  <- matrix(NA, nrow = 1, ncol = nlevels(data[, by]) * 2 + 2)
-  out[, 1] <- f1(data[, var])
-  out[, 2] <- f2(data[, var])
+
+  d <- na.omit(dat[, c(var, by)]) 
+  tab1 <- tapply(d[, var], d[, by], FUN = f1)
+  tab2 <- tapply(d[, var], d[, by], FUN = f2)
+
+
+  out  <- matrix(NA, nrow = 1, ncol = nlevels(d[, by]) * 2 + 2)
+  out[, 1] <- f1(d[, var])
+  out[, 2] <- f2(d[, var])
   out[, seq(3, ncol(out), by = 2)] <- tab1
   out[, seq(4, ncol(out), by = 2)] <- tab2
 
