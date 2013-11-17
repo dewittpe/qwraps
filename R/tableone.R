@@ -244,7 +244,7 @@ contab <- function(var, by, data, stat.con.1, stat.con.2, test, frmt = FALSE,
   f1   <- match.fun(stat.con.1)
   f2   <- match.fun(stat.con.2)
 
-  d <- na.omit(dat[, c(var, by)]) 
+  d    <- na.omit(data[, c(var, by)]) 
   tab1 <- tapply(d[, var], d[, by], FUN = f1)
   tab2 <- tapply(d[, var], d[, by], FUN = f2)
 
