@@ -27,3 +27,4 @@ Collate:
     'params_frmtr.R'
     'tableone.R'
     'trimWhite.R'
+    'regression_results.R'
