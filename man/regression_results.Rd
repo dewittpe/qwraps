@@ -2,7 +2,7 @@
 \alias{print.regression_results}
 \alias{regression_results}
 \alias{regression_results.coxph}
-\alias{regression_results.lm}
+\alias{regression_results.glm}
 \alias{regression_results.survfit}
 \title{Function for generating a nice, human readable, summary table of a regression
 model.}
