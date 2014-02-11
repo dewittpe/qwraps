@@ -31,7 +31,7 @@ function(fit,  ...)
 #' @rdname regression_results
 #' @method regression_results lm
 #' @S3method regression_results lm 
-regression_results.lm <-
+regression_results.glm <-
 function(fit, ...)
 {
   # fit <- glm(tms.change ~ unit + age + primaryd, data = music.therapy, family = binomial())
