@@ -11,7 +11,7 @@ regression_results(fit, ...)
 
 \method{regression_results}{coxph}(fit, ...)
 
-\method{regression_results}{lm}(fit, ...)
+\method{regression_results}{glm}(fit, ...)
 
 \method{regression_results}{survfit}(fit, alpha = getOption("qwraps.alpha",
   0.05), ...)

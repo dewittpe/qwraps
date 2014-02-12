@@ -29,8 +29,8 @@ function(fit,  ...)
 }
 
 #' @rdname regression_results
-#' @method regression_results lm
-#' @S3method regression_results lm 
+#' @method regression_results glm
+#' @S3method regression_results glm 
 regression_results.glm <-
 function(fit, ...)
 {
