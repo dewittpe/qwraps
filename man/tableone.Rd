@@ -4,16 +4,14 @@
 \title{Tableone summarizes a selection of the data set as would be presented in a
 table 1 for a manuscript.}
 \usage{
-  tableone(vars, by = NULL, data = NULL, complete = TRUE,
-    margin = 2, overall = TRUE, stat.con.1 = mean,
-    stat.con.2 = sd, tests = c("chisq.test", "t.test"),
-    fisher = TRUE, digits = getOption("qwraps.digits", 3),
-    big.mark = ",")
+tableone(vars, by = NULL, data = NULL, complete = TRUE, margin = 2,
+  overall = TRUE, stat.con.1 = mean, stat.con.2 = sd,
+  tests = c("chisq.test", "t.test"), fisher = TRUE,
+  digits = getOption("qwraps.digits", 3), big.mark = ",")
 
-  \method{print}{tableone} (tab1, file = "", title = "",
-    ctable = getOption("qwraps.tableone.ctable", TRUE),
-    cgroup, n.cgroup, rgroup, n.rgroup, rowname, col.just,
-    ...)
+\method{print}{tableone}(tab1, file = "", title = "",
+  ctable = getOption("qwraps.tableone.ctable", TRUE), cgroup, n.cgroup,
+  rgroup, n.rgroup, rowname, col.just, ...)
 }
 \arguments{
   \item{vars}{characer vector of the names of the variables
@@ -72,25 +70,24 @@ table 1 for a manuscript.}
   \item{show.equal.sign}{}
 }
 \value{
-  a list with the elements intended to be used with
-  \code{\link{Hmisc::latex}} \item{tab}{a string of
-  formated numbers.  Non-numbers are empty strings. If the
-  p-value is less than 10^(-pdigits) the return will be '<
-  10^(-pdigits)} \item{cgrp}{a character vector for the
-  column groups, the levels of \code{by}} \item{ncgrp}{a
-  numeric vector for n.cgroup} \item{rgrp}{a character
-  vector for the row groups} \item{rcgrp}{a numeric vector
-  for n.cgroup} \item{rwnms}{a character vector of row
-  names}
+a list with the elements intended to be used with
+\code{\link{Hmisc::latex}} \item{tab}{a string of formated
+numbers.  Non-numbers are empty strings. If the p-value is
+less than 10^(-pdigits) the return will be '<
+10^(-pdigits)} \item{cgrp}{a character vector for the
+column groups, the levels of \code{by}} \item{ncgrp}{a
+numeric vector for n.cgroup} \item{rgrp}{a character vector
+for the row groups} \item{rcgrp}{a numeric vector for
+n.cgroup} \item{rwnms}{a character vector of row names}
 }
 \description{
-  Summarize variables by a categorical variable within a
-  given data.frame. Overall and by results are presented
-  along with simiple hypothesis tests.
+Summarize variables by a categorical variable within a
+given data.frame. Overall and by results are presented
+along with simiple hypothesis tests.
 }
 \details{
-  EXPLAIN THE DETAILS MORE, FACTORS AND NUMERS ARE
-  IMPORANT, WILL TRANSFORM CHARACTERS TO FACTORS
+EXPLAIN THE DETAILS MORE, FACTORS AND NUMERS ARE IMPORANT,
+WILL TRANSFORM CHARACTERS TO FACTORS
 }
 \examples{
 data(diamonds, package = "ggplot2")
@@ -125,8 +122,8 @@ Hmisc::latex(tab1$tab,
 print(tab1)
 }
 \author{
-  Peter DeWitt
+Peter DeWitt
 }
-\keyword{{summary}
 \keyword{table}}
+\keyword{{summary}
 

@@ -2,12 +2,11 @@
 \alias{count}
 \title{Count and percentage of a factor level.}
 \usage{
-  count(var, value, data = NULL,
-    operator = c("match", "equal", "less", "greater", "lesseq", "greatereq", "is.na", "isnot.na"),
-    na.rm = FALSE, show.n = TRUE, show.percent = TRUE,
-    digits = getOption("qwraps.percent.digits", 1),
-    big.mark = ",",
-    latex = getOption("qwraps.latex", TRUE))
+count(var, value, data = NULL, operator = c("match", "equal", "less",
+  "greater", "lesseq", "greatereq", "is.na", "isnot.na"), na.rm = FALSE,
+  show.n = TRUE, show.percent = TRUE,
+  digits = getOption("qwraps.percent.digits", 1), big.mark = ",",
+  latex = getOption("qwraps.latex", TRUE))
 }
 \arguments{
   \item{var}{name of a factor in a data frame.}
@@ -36,16 +35,16 @@
   \item{latex}{Not currently implemented.}
 }
 \value{
-  A sting of the form n, (\%).
+A sting of the form n, (\%).
 }
 \description{
-  Returns a string with the count and/or percentage of a
-  particular level of a factor for easy reporting in
-  general but specifically for sweaved/knitted documents.
+Returns a string with the count and/or percentage of a
+particular level of a factor for easy reporting in general
+but specifically for sweaved/knitted documents.
 }
 \details{
-  %% ~~ If necessary, more details than the description
-  above ~~
+%% ~~ If necessary, more details than the description above
+~~
 }
 \examples{
 ## Load example data set diamonds from the ggplot2 package

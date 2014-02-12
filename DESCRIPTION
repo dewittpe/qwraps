@@ -14,17 +14,3 @@ Description: Wrapper functions for creating plots such as ACF, ROC, or survfit
     quickly formating results from analyses are included.
 License: GPL (>=2.0)
 URL: github.com/dewittpe/qwraps
-Collate:
-    'count.R'
-    'frmt.R'
-    'load_cache.R'
-    'params.R'
-    'qacf.R'
-    'qroc.R'
-    'qsurvplot.R'
-    'simpleCap.R'
-    'qwraps-package.R'
-    'params_frmtr.R'
-    'tableone.R'
-    'trimWhite.R'
-    'regression_results.R'

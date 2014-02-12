@@ -2,8 +2,7 @@
 \alias{qsurvplot}
 \title{KM plots}
 \usage{
-  qsurvplot(fit,
-    show.ci = getOption("qwraps.show.ci", TRUE))
+qsurvplot(fit, show.ci = getOption("qwraps.show.ci", TRUE))
 }
 \arguments{
   \item{fit}{a \code{survfit} object}
@@ -16,10 +15,10 @@
   \item{labels:}{deprecated}
 }
 \value{
-  ? a ggplot object showing the KM curve(s)
+? a ggplot object showing the KM curve(s)
 }
 \description{
-  Create Kaplan-Meier plots via ggplot2
+Create Kaplan-Meier plots via ggplot2
 }
 \examples{
 library(survival)
@@ -28,13 +27,13 @@ plot(leukemia.surv, lty = 2:3)
 qsurvplot(leukemia.surv)
 }
 \author{
-  Peter DeWitt
+Peter DeWitt
 }
 \references{
-  ?
+?
 }
 \seealso{
-  \code{\link{survfit}}
+\code{\link{survfit}}
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

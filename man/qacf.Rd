@@ -2,9 +2,8 @@
 \alias{qacf}
 \title{Auto correlation plot in ggplot}
 \usage{
-  qacf(x, conf.level = 0.95, lag.max = NULL,
-    type = c("correlation", "covariance", "partial"),
-    show.sig = FALSE)
+qacf(x, conf.level = 0.95, lag.max = NULL, type = c("correlation",
+  "covariance", "partial"), show.sig = FALSE)
 }
 \arguments{
   \item{x}{vector, or data.frame, to be plotted.}
@@ -25,11 +24,11 @@
   option is only used for the corrleation plot.}
 }
 \value{
-  a ggplot object
+a ggplot object
 }
 \description{
-  Reproduce the stats::acf plots from the base R graphics
-  package in ggplot2.
+Reproduce the stats::acf plots from the base R graphics
+package in ggplot2.
 }
 \examples{
 # Generate a random data set
@@ -66,10 +65,10 @@ acf(testdf)
 qacf(testdf)
 }
 \author{
-  Peter DeWitt
+Peter DeWitt
 }
 \seealso{
-  \code{\link{stats::acf}},
+\code{\link{stats::acf}},
 }
 \keyword{acf}
 \keyword{pacf}

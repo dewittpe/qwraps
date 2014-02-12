@@ -60,11 +60,14 @@ params_frmtr <- function(rtn,
   }
 
   rtn.frmt <- as.data.frame(rtn)
-  rtn.frmt[, 1:3] <- formatC(rtn[, 1:3], 
+
+  for(i in 1:3) { 
+    rtn.frmt[, i] <- formatC(rtn[, i], 
                              digits = digits, 
                              format = "f", 
                              big.mark = big.mark,
                              small.mark = small.mark) 
+  }
  
   rtn.frmt[, 4] <- frmtp(rtn[, 4], pdigits, show.equal.sign = FALSE)
 

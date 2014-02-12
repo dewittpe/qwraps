@@ -2,14 +2,12 @@
 \alias{params_frmtr}
 \title{formating helper function, not intended to be called by end users}
 \usage{
-  params_frmtr(rtn, param = NULL,
-    digits = getOption("qwraps.digits", 3),
-    pdigits = getOption("qwraps.pdigits", 4),
-    show.ci = getOption("qwraps.show.ci", TRUE),
-    show.pval = getOption("qwraps.show.pval", TRUE),
-    alpha = getOption("qwraps.alpha", 0.05), fun = NULL,
-    show.equal.sign = FALSE, unit = "", big.mark = "",
-    small.mark = "")
+params_frmtr(rtn, param = NULL, digits = getOption("qwraps.digits", 3),
+  pdigits = getOption("qwraps.pdigits", 4),
+  show.ci = getOption("qwraps.show.ci", TRUE),
+  show.pval = getOption("qwraps.show.pval", TRUE),
+  alpha = getOption("qwraps.alpha", 0.05), fun = NULL,
+  show.equal.sign = FALSE, unit = "", big.mark = "", small.mark = "")
 }
 \arguments{
   \item{rtn}{object from params.xxx}
@@ -49,27 +47,27 @@
   \item{small.mark}{passed to frmt}
 }
 \value{
-  a list with three elements
+a list with three elements
 }
 \description{
-  helper function, not intended to be called by end users,
-  for the \code{\link{params}} function.
+helper function, not intended to be called by end users,
+for the \code{\link{params}} function.
 }
 \details{
-  %% ~~ If necessary, more details than the description
-  above ~~
+%% ~~ If necessary, more details than the description above
+~~
 }
 \note{
-  ?
+?
 }
 \examples{
 ## See \\code{\\link{params}}  \\code{params_frmtr} is not intended to be called
 ## by the end user
 }
 \author{
-  Peter DeWitt
+Peter DeWitt
 }
 \seealso{
-  \code{\link{params}} \code{\link{frmt}}
+\code{\link{params}} \code{\link{frmt}}
 }
 
