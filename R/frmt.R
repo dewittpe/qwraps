@@ -7,7 +7,8 @@
 #'frmtp for formating p-values.
 #'
 #'@param x vector of numbers to be formated.
-#'@param digits digits to follow the decimal mark, including trailing zeros.
+#'@param digits digits to follow the decimal mark, including trailing zeros.  If
+#' x is an integer digits are set to 0.
 #'@param big.mark Default is a comma to separate, i.e., 1000 would be reported
 #'as 1,000.
 #'@param pdigits number of digits to report p-values to.  
@@ -30,10 +31,14 @@
 #' @export frmt
 frmt <-
 function(x, digits = getOption("qwraps.digits", 3), big.mark = ","){
-    idx <- is.na(x)
-    y <- formatC(x, digits = digits, format = "f", big.mark = big.mark)
-    y[idx] <- ""
-    return(y)
+
+  if (length(x) == 1 & is.integer(x)) { 
+    digits <- 0
+  }
+  idx <- is.na(x)
+  y <- formatC(x, digits = digits, format = "f", big.mark = big.mark)
+  y[idx] <- ""
+  return(y)
 }
 
 #' @rdname frmt

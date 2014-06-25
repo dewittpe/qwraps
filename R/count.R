@@ -11,7 +11,7 @@
 #'@param data data.frame with var included, default to NULL.  Function is
 #' intended to be used with data in data frames.
 #'@param operator The boolean operator to use.  Default is the match, i.e.,
-#'\code{%in%} operator.
+#'\code{\%in\%} operator.
 #'@param na.rm a logical indicating whether missing values should be removed.
 #'@param show.n Boolean, default to TRUE, to show the raw counts.
 #'@param show.percent Boolean, default to TRUE, for reporting the percentage
