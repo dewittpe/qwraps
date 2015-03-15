@@ -1,5 +1,16 @@
-qwraps
-======
+# qwraps
+
+So, I don't even use this stuff very much any more.  Most of the tasks for
+summarizing data can be achieved with ease by using
+[`dplyr`](https://github.com/hadley/dplyr) and
+[`tidyr`](https://github.com/hadley/tidyr).  Some of the functions for formating
+strings and what not are still helpful, but may not be stream lined with the
+paradigms of the Hadley-verse.  
+
+Graphics are still useful, but this package needs to be deprecated and the
+contents redesigned.
+
+---
 
 Wrapper functions for producing base R plots using `ggplot2` 
 https://github.com/hadley/ggplot2 .  Included functions
