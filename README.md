@@ -10,6 +10,9 @@ paradigms of the Hadley-verse.
 Graphics are still useful, but this package needs to be deprecated and the
 contents redesigned.
 
+**Please consider using ['qwraps2'](https://github.com/dewittpe/qwraps2) instead.
+Most of the methods in qwraps have been reimplemented in qwraps2.**
+
 ---
 
 Wrapper functions for producing base R plots using `ggplot2` 
